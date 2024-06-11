@@ -105,7 +105,7 @@ $$
 ### Trading Signal for %K
 $$
 \%K_{td} = \begin{cases} 
-1 & \text{if } \%K > \%K_{shift}(1) \\
+1 & \text{if } \%K > \%K_{\text{shift}(1)} \\
 0 & \text{otherwise}
 \end{cases}
 $$
