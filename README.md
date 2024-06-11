@@ -67,7 +67,9 @@ This project includes various technical analysis indicators calculated using pan
 
 ## Moving Averages (MA)
 
-### 10-Day Moving Average (10D MA)
+# Technical Indicators and Trading Signals
+
+## 10-Day Moving Average (10D MA)
 $$
 MA = \frac{\sum_{i=0}^{9} \text{Price}_i}{10}
 $$
@@ -80,7 +82,7 @@ MA_{td} = \begin{cases}
 \end{cases}
 $$
 
-### 30-Day Moving Average (30D MA)
+## 30-Day Moving Average (30D MA)
 $$
 3MA = \frac{\sum_{i=0}^{29} \text{Price}_i}{30}
 $$
@@ -96,12 +98,9 @@ $$
 ## Stochastic Oscillator (%K and %D)
 
 ### %K Calculation
-
-\[
+$$
 \%K = \frac{\text{Price} - \text{Lowest Low}_{10}}{\text{Highest High}_{10} - \text{Lowest Low}_{10}} \times 100
-\]
-
-
+$$
 
 ### Trading Signal for %K
 $$
