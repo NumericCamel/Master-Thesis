@@ -1,0 +1,166 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\begin{document}
+
+\title{Technical Indicators and Trading Signals}
+\author{Your Name}
+\date{\today}
+\maketitle
+
+\section{10-Day Moving Average (10D MA)}
+\begin{equation}
+MA = \frac{\sum_{i=0}^{9} \text{Price}_i}{10}
+\end{equation}
+
+\subsection{Trading Signal for 10D MA}
+\begin{equation}
+MA_{td} = 
+\begin{cases} 
+1 & \text{if Price} > MA \\
+0 & \text{otherwise}
+\end{cases}
+\end{equation}
+
+\section{30-Day Moving Average (30D MA)}
+\begin{equation}
+3MA = \frac{\sum_{i=0}^{29} \text{Price}_i}{30}
+\end{equation}
+
+\subsection{Trading Signal for 30D MA}
+\begin{equation}
+3MA_{td} = 
+\begin{cases} 
+1 & \text{if Price} > 3MA \\
+0 & \text{otherwise}
+\end{cases}
+\end{equation}
+
+\section{Stochastic Oscillator (\%K and \%D)}
+
+\subsection{\%K Calculation}
+\begin{equation}
+\%K = \frac{\text{Price} - \text{Lowest Low}_{10}}{\text{Highest High}_{10} - \text{Lowest Low}_{10}} \times 100
+\end{equation}
+
+\subsection{Trading Signal for \%K}
+\begin{equation}
+\%K_{td} = 
+\begin{cases} 
+1 & \text{if } \%K > \%K_{\text{shift}(1)} \\
+0 & \text{otherwise}
+\end{cases}
+\end{equation}
+
+\subsection{\%D Calculation}
+\begin{equation}
+\%D = \frac{\sum_{i=0}^{2} \%K_i}{3}
+\end{equation}
+
+\subsection{Trading Signal for \%D}
+\begin{equation}
+\%D_{td} = 
+\begin{cases} 
+1 & \text{if } \%D > \%D_{\text{shift}(1)} \\
+0 & \text{otherwise}
+\end{cases}
+\end{equation}
+
+\section{Relative Strength Index (RSI)}
+
+\subsection{RSI Calculation}
+\begin{equation}
+\Delta \text{Price} = \text{Price}_{i} - \text{Price}_{i-1}
+\end{equation}
+\begin{equation}
+\text{Gain} = \frac{\sum_{i=0}^{13} \max(\Delta \text{Price}_i, 0)}{14}
+\end{equation}
+\begin{equation}
+\text{Loss} = \frac{\sum_{i=0}^{13} \max(-\Delta \text{Price}_i, 0)}{14}
+\end{equation}
+\begin{equation}
+RS = \frac{\text{Gain}}{\text{Loss}}
+\end{equation}
+\begin{equation}
+RSI = 100 - \frac{100}{1 + RS}
+\end{equation}
+
+\subsection{Trading Signal for RSI}
+\begin{equation}
+RSI_{td} = 
+\begin{cases} 
+-1 & \text{if RSI} \geq 70 \\
+1 & \text{if RSI} \leq 30 \\
+0 & \text{otherwise}
+\end{cases}
+\end{equation}
+
+\section{Momentum}
+
+\subsection{Momentum Calculation}
+\begin{equation}
+\text{Momentum} = \text{Price} - \text{Price}_{\text{shift}(10)}
+\end{equation}
+
+\subsection{Trading Signal for Momentum}
+\begin{equation}
+\text{Momentum}_{td} = 
+\begin{cases} 
+1 & \text{if Momentum} > 1 \\
+0 & \text{otherwise}
+\end{cases}
+\end{equation}
+
+\section{Moving Average Convergence Divergence (MACD)}
+
+\subsection{MACD Calculation}
+\begin{equation}
+EMA_{12} = \text{Price}_{\text{ewm(span=12, adjust=False).mean()}}
+\end{equation}
+\begin{equation}
+EMA_{26} = \text{Price}_{\text{ewm(span=26, adjust=False).mean()}}
+\end{equation}
+\begin{equation}
+MACD = EMA_{12} - EMA_{26}
+\end{equation}
+\begin{equation}
+\text{Signal Line} = MACD_{\text{ewm(span=9, adjust=False).mean()}}
+\end{equation}
+
+\subsection{Trading Signal for MACD}
+\begin{equation}
+MACD_{td} = 
+\begin{cases} 
+1 & \text{if MACD} > MACD_{\text{shift}(1)} \\
+0 & \text{otherwise}
+\end{cases}
+\end{equation}
+
+\section{Commodity Channel Index (CCI)}
+
+\subsection{CCI Calculation}
+\begin{equation}
+TP = \frac{\text{High} + \text{Low} + \text{Price}}{3}
+\end{equation}
+\begin{equation}
+SMA_{TP} = \frac{\sum_{i=0}^{19} TP_i}{20}
+\end{equation}
+\begin{equation}
+MD = \frac{\sum_{i=0}^{19} \left| TP_i - SMA_{TP} \right|}{20}
+\end{equation}
+\begin{equation}
+CCI = \frac{TP - SMA_{TP}}{0.015 \times MD}
+\end{equation}
+
+\subsection{Trading Signal for CCI}
+\begin{equation}
+CCI_{td} = 
+\begin{cases} 
+-1 & \text{if CCI} \geq 100 \\
+1 & \text{if CCI} \leq -100 \\
+0 & \text{otherwise}
+\end{cases}
+\end{equation}
+
+\end{document}
