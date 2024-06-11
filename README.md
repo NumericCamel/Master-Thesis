@@ -68,150 +68,151 @@ This project includes various technical analysis indicators calculated using pan
 ## Moving Averages (MA)
 
 ### 10-Day Moving Average (10D MA)
-\[
+$$
 MA = \frac{\sum_{i=0}^{9} \text{Price}_i}{10}
-\]
+$$
 
 ### Trading Signal for 10D MA
-\[
+$$
 MA_{td} = \begin{cases} 
 1 & \text{if Price} > MA \\
 0 & \text{otherwise}
 \end{cases}
-\]
+$$
 
 ### 30-Day Moving Average (30D MA)
-$\[
+$$
 3MA = \frac{\sum_{i=0}^{29} \text{Price}_i}{30}
-\]$
+$$
 
 ### Trading Signal for 30D MA
-$\[
+$$
 3MA_{td} = \begin{cases} 
 1 & \text{if Price} > 3MA \\
 0 & \text{otherwise}
 \end{cases}
-\]$
+$$
 
 ## Stochastic Oscillator (%K and %D)
 
 ### %K Calculation
-\[
+$$
 \%K = \frac{\text{Price} - \text{Lowest Low}_{10}}{\text{Highest High}_{10} - \text{Lowest Low}_{10}} \times 100
-\]
+$$
 
 ### Trading Signal for %K
-\[
+$$
 \%K_{td} = \begin{cases} 
 1 & \text{if } \%K > \%K_{shift}(1) \\
 0 & \text{otherwise}
 \end{cases}
-\]
+$$
 
 ### %D Calculation
-\[
+$$
 \%D = \frac{\sum_{i=0}^{2} \%K_i}{3}
-\]
+$$
 
 ### Trading Signal for %D
-\[
+$$
 \%D_{td} = \begin{cases} 
 1 & \text{if } \%D > \%D_{shift}(1) \\
 0 & \text{otherwise}
 \end{cases}
-\]
+$$
 
 ## Relative Strength Index (RSI)
 
 ### RSI Calculation
-\[
+$$
 \Delta \text{Price} = \text{Price}_{i} - \text{Price}_{i-1}
-\]
-\[
+$$
+$$
 \text{Gain} = \frac{\sum_{i=0}^{13} \max(\Delta \text{Price}_i, 0)}{14}
-\]
-\[
+$$
+$$
 \text{Loss} = \frac{\sum_{i=0}^{13} \max(-\Delta \text{Price}_i, 0)}{14}
-\]
-\[
+$$
+$$
 RS = \frac{\text{Gain}}{\text{Loss}}
-\]
-\[
+$$
+$$
 RSI = 100 - \frac{100}{1 + RS}
-\]
+$$
 
 ### Trading Signal for RSI
-\[
+$$
 RSI_{td} = \begin{cases} 
 -1 & \text{if RSI} \geq 70 \\
 1 & \text{if RSI} \leq 30 \\
 0 & \text{otherwise}
 \end{cases}
-\]
+$$
 
 ## Momentum
 
 ### Momentum Calculation
-\[
+$$
 \text{Momentum} = \text{Price} - \text{Price}_{shift}(10)
-\]
+$$
 
 ### Trading Signal for Momentum
-\[
+$$
 \text{Momentum}_{td} = \begin{cases} 
 1 & \text{if Momentum} > 1 \\
 0 & \text{otherwise}
 \end{cases}
-\]
+$$
 
 ## Moving Average Convergence Divergence (MACD)
 
 ### MACD Calculation
-\[
+$$
 EMA_{12} = \text{Price}_{\text{ewm(span=12, adjust=False).mean()}}
-\]
-\[
+$$
+$$
 EMA_{26} = \text{Price}_{\text{ewm(span=26, adjust=False).mean()}}
-\]
-\[
+$$
+$$
 MACD = EMA_{12} - EMA_{26}
-\]
-\[
+$$
+$$
 \text{Signal Line} = MACD_{\text{ewm(span=9, adjust=False).mean()}}
-\]
+$$
 
 ### Trading Signal for MACD
-\[
+$$
 MACD_{td} = \begin{cases} 
 1 & \text{if MACD} > MACD_{shift}(1) \\
 0 & \text{otherwise}
 \end{cases}
-\]
+$$
 
 ## Commodity Channel Index (CCI)
 
 ### CCI Calculation
-\[
+$$
 TP = \frac{\text{High} + \text{Low} + \text{Price}}{3}
-\]
-\[
+$$
+$$
 SMA_{TP} = \frac{\sum_{i=0}^{19} TP_i}{20}
-\]
-\[
+$$
+$$
 MD = \frac{\sum_{i=0}^{19} \left| TP_i - SMA_{TP} \right|}{20}
-\]
-\[
+$$
+$$
 CCI = \frac{TP - SMA_{TP}}{0.015 \times MD}
-\]
+$$
 
 ### Trading Signal for CCI
-\[
+$$
 CCI_{td} = \begin{cases} 
 -1 & \text{if CCI} \geq 100 \\
 1 & \text{if CCI} \leq -100 \\
 0 & \text{otherwise}
 \end{cases}
-\]
+$$
+
 
 
 ### 5. Reddit Posts
