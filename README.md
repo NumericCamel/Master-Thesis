@@ -97,7 +97,7 @@ $$
 
 ### %K Calculation
 $$
-\text{\%K} = \frac{\text{Price} - \text{Lowest Low}_{10}}{\text{Highest High}_{10} - \text{Lowest Low}_{10}} \times 100
+\text{\%K} = \frac{\text{Price} - \text{Lowest Low}_{10}}{\text{Highest High}_{10} - \text{Lowest Low}_{10}} \* 100
 $$
 
 
