@@ -1,7 +1,5 @@
 # Predicing BTC, ETH, and SOL Prices using multivariate feature set inlcuding social media sentiment analysis: A machine learning approach
 
-
-
 ## Literature Review
 
 Predicting stock prices is not only multifaceted but also regarded as one of the most challenging applications of time-series analysis (Kara et al., 2011). Despite the extensive empirical research on predicting stock prices, the literature specifically addressing crypto stock price predictions remains significantly less developed. Accurate and robust stock price predictions are of utmost importance for developing effective trading strategies (Leung, Daouk, & Chen, 2000).
@@ -38,3 +36,44 @@ Similarly, news sentiment has shown a notable impact on Bitcoin prices. Lavinia 
 ### Conclusion
 The literature review underscores the multifaceted and challenging nature of predicting stock and cryptocurrency prices, emphasizing the importance of robust predictions for effective trading strategies. Research on stock price prediction is extensive, utilizing various machine learning (ML) and deep learning (DL) methods. Studies such as those by Kara et al. (2011) and Patel (2015) highlight the effectiveness of SVM and random forest models, respectively, in forecasting stock prices using technical indicators. Similarly, Chen (2020) and Weng (2018) demonstrate the predictive power of logistic regression, LSTM networks, and ensemble methods for Bitcoin and stock prices, leveraging comprehensive feature sets that include market variables and sentiment scores. The review also notes the evolving efficiency of cryptocurrency markets, with studies like those by Kang et al. (2022) and Tran (2020) revealing limited adherence to the Efficient Market Hypothesis (EMH), indicating significant information processing inefficiencies.
 The impact of sentiment analysis on market predictions emerges as a critical theme. Research by Mai (2018) and Kraaijeveld (2020) establishes the predictive power of social media sentiment on cryptocurrency prices, while Kristoufek (2013) and Chan (2003) demonstrate similar effects for online search activity and news sentiment on Bitcoin and stock markets. Studies such as Rognone (2020) and Khan (2020) further validate the significant influence of real-time sentiment, integrating social media and news data to achieve high prediction accuracy. These findings collectively highlight the importance of incorporating diverse feature sets, including sentiment analysis, to enhance the predictability of financial markets and challenge traditional notions of market efficiency.
+
+
+## Data
+This section details the datasets and technical indicators used for the machine learning algorithms to predict the next day's classification of BTC, ETH, and SOL prices. The datasets include historic prices, Google Trends, Wikipedia page views, and top 100 Reddit posts for sentiment analysis and topic modeling. Additionally, several technical indicators are engineered from the main price data tables.
+
+### 1. Historic Prices
+For BTC, ETH, and SOL, we collected historic prices with the following attributes:
+
+- Price: The closing price of the cryptocurrency.
+- Open: The opening price.
+- High: The highest price during the trading period.
+- Low: The lowest price during the trading period.
+- Close: The closing price.
+- Volume: The trading volume.
+- Pct Change: The percentage change in price.
+
+### 2. Google Trends
+Google Trends data is collected for BTC, ETH, and SOL to understand the relative search interest over time. This data helps gauge public interest and potential market movements.
+
+### 3. Wikipedia Page Views
+Wikipedia page views for BTC, ETH, and SOL are used to measure the general public's interest in these cryptocurrencies. This data serves as a proxy for market sentiment and public awareness.
+
+### 4. Technical Indicators
+Various technical indicators are calculated to provide additional insights into price movements. Below are the formulas used for these indicators:
+
+### 5. Reddit Posts
+Top 100 Reddit posts per respective cryptocurrency subreddit (BTC, ETH, SOL) are collected. The data includes:
+
+- Title: The title of the post.
+- Description: A brief description of the post.
+- Date Posted: The date the post was published.
+- Number of Likes: The number of likes the post received.
+- Number of Comments: The number of comments on the post.
+- Overall Score: The overall score of the post.
+
+This data will be used for sentiment analysis and topic modeling to gain insights into community sentiment and trending topics.
+
+### 10-Day Moving Average (MA)
+```python
+ta['MA'] = ta.Price.rolling(window=10).mean()
+ta['MA_td'] = (ta.Price > ta.MA).astype(int)
