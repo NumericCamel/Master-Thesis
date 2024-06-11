@@ -61,7 +61,7 @@ Wikipedia page views for BTC, ETH, and SOL are used to measure the general publi
 ### 4. Technical Indicators
 Various technical indicators are calculated to provide additional insights into price movements. Below are the formulas used for these indicators:
 
-$/sqrt(5)
+$/sqrt(5)$
 
 
 ### 5. Reddit Posts
