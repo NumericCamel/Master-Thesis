@@ -61,6 +61,106 @@ Wikipedia page views for BTC, ETH, and SOL are used to measure the general publi
 ### 4. Technical Indicators
 Various technical indicators are calculated to provide additional insights into price movements. Below are the formulas used for these indicators:
 
+
+```markdown
+# Technical Indicators Formulas
+
+This document provides the formulas used to create various technical indicators in Python.
+
+## Moving Averages (MA)
+
+### 10-Day Moving Average (MA)
+```python
+ta['MA'] = ta.Price.rolling(window=10).mean()
+ta['MA_td'] = (ta.Price > ta.MA).astype(int)
+```
+
+### 30-Day Moving Average (3MA)
+```python
+ta['3MA'] = ta.Price.rolling(window=30).mean()
+ta['3MA_td'] = (ta.Price > ta['3MA']).astype(int)
+```
+
+## Stochastic Oscillator
+
+### %K
+```python
+lowest_low = ta.Low.rolling(window=10).min()
+highest_high = ta.High.rolling(window=10).max()
+ta['%K'] = (ta.Price - lowest_low) / (highest_high - lowest_low) * 100
+ta['%K_td'] = (ta['%K'] > ta['%K'].shift(1)).astype(int)
+```
+
+### %D
+```python
+ta['%D'] = ta['%K'].rolling(window=3).mean()
+ta['%D_td'] = (ta['%D'] > ta['%D'].shift(1)).astype(int)
+```
+
+## Relative Strength Index (RSI)
+```python
+delta = ta.Price.diff()
+gain = (delta.where(delta > 0, 0)).rolling(window=14).mean()
+loss = (-delta.where(delta < 0, 0)).rolling(window=14).mean()
+rs = gain / loss
+ta['RSI'] = 100 - (100 / (1 + rs))
+
+def RSI_td(rsi_values):
+    if rsi_values >= 70:
+        return -1
+    elif rsi_values <= 30:
+        return 1
+    else:
+        return 0
+
+ta['RSI_td'] = ta.RSI.apply(RSI_td)
+```
+
+## Momentum
+```python
+momentum_window = 10
+ta['Momentum'] = ta.Price - ta.Price.shift(momentum_window)
+ta['Momentum_td'] = (ta.Momentum > 1).astype(int)
+```
+
+## Moving Average Convergence Divergence (MACD)
+```python
+ta['EMA12'] = ta.Price.ewm(span=12, adjust=False).mean()
+ta['EMA26'] = ta.Price.ewm(span=26, adjust=False).mean()
+ta['MACD'] = ta['EMA12'] - ta['EMA26']
+ta['Signal'] = ta['MACD'].ewm(span=9, adjust=False).mean()
+ta['MACD_td'] = (ta['MACD'] > ta['MACD'].shift(1)).astype(int)
+```
+
+## Commodity Channel Index (CCI)
+```python
+ta['TP'] = (ta['High'] + ta['Low'] + ta['Price']) / 3
+
+# Calculate the 20-period Simple Moving Average of the Typical Price
+ta['SMA_TP'] = ta['TP'].rolling(window=20).mean()
+
+def calculate_md(series):
+    return abs(series - series.mean()).mean()
+
+ta['MD'] = ta['TP'].rolling(window=20).apply(calculate_md)
+
+# Calculate the CCI
+ta['CCI'] = (ta['TP'] - ta['SMA_TP']) / (0.015 * ta['MD'])
+
+def CCI_td(CCI_values):
+    if CCI_values >= 100:
+        return -1
+    elif CCI_values <= -100:
+        return 1
+    else:
+        return 0
+
+ta['CCI_td'] = ta.CCI.apply(CCI_td)
+```
+
+This document provides a Python implementation of various technical indicators used for analyzing financial time series data.
+```
+
 ### 5. Reddit Posts
 Top 100 Reddit posts per respective cryptocurrency subreddit (BTC, ETH, SOL) are collected. The data includes:
 
@@ -73,7 +173,3 @@ Top 100 Reddit posts per respective cryptocurrency subreddit (BTC, ETH, SOL) are
 
 This data will be used for sentiment analysis and topic modeling to gain insights into community sentiment and trending topics.
 
-### 10-Day Moving Average (MA)
-```python
-ta['MA'] = ta.Price.rolling(window=10).mean()
-ta['MA_td'] = (ta.Price > ta.MA).astype(int)
