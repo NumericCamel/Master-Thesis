@@ -70,10 +70,13 @@ This document provides the formulas used to create various technical indicators 
 ## Moving Averages (MA)
 
 ### 10-Day Moving Average (MA)
-```python
-ta['MA'] = ta.Price.rolling(window=10).mean()
-ta['MA_td'] = (ta.Price > ta.MA).astype(int)
-```
+\[ \text{MA}_{10} = \frac{1}{10} \sum_{i=0}^{9} \text{Price}_{t-i} \]
+\[ \text{MA\_td}_{10} = 
+  \begin{cases} 
+   1 & \text{if Price} > \text{MA}_{10} \\
+   0 & \text{otherwise}
+  \end{cases}
+\]
 
 ### 30-Day Moving Average (3MA)
 ```python
