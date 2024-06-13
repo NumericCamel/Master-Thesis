@@ -1,6 +1,7 @@
 \documentclass{article}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{array}
 
 \begin{document}
 
@@ -9,158 +10,105 @@
 \date{\today}
 \maketitle
 
-\section{10-Day Moving Average (10D MA)}
-\begin{equation}
-MA = \frac{\sum_{i=0}^{9} \text{Price}_i}{10}
-\end{equation}
+\section{Technical Indicators and Trading Signals}
 
-\subsection{Trading Signal for 10D MA}
-\begin{equation}
-MA_{td} = 
-\begin{cases} 
+\begin{table}[h!]
+\centering
+\begin{tabular}{| m{3cm} | m{8cm} | m{5cm} |}
+\hline
+\textbf{Indicator} & \textbf{Formula} & \textbf{Trading Signal} \\ \hline
+
+\textbf{10-Day Moving Average (10D MA)} & 
+$MA = \frac{\sum_{i=0}^{9} \text{Price}_i}{10}$ & 
+$MA_{td} = \begin{cases} 
 1 & \text{if Price} > MA \\
 0 & \text{otherwise}
-\end{cases}
-\end{equation}
+\end{cases}$ \\
+\hline
 
-\section{30-Day Moving Average (30D MA)}
-\begin{equation}
-3MA = \frac{\sum_{i=0}^{29} \text{Price}_i}{30}
-\end{equation}
-
-\subsection{Trading Signal for 30D MA}
-\begin{equation}
-3MA_{td} = 
-\begin{cases} 
+\textbf{30-Day Moving Average (30D MA)} & 
+$3MA = \frac{\sum_{i=0}^{29} \text{Price}_i}{30}$ & 
+$3MA_{td} = \begin{cases} 
 1 & \text{if Price} > 3MA \\
 0 & \text{otherwise}
-\end{cases}
-\end{equation}
+\end{cases}$ \\
+\hline
 
-\section{Stochastic Oscillator (\%K and \%D)}
-
-\subsection{\%K Calculation}
-\begin{equation}
-\%K = \frac{\text{Price} - \text{Lowest Low}_{10}}{\text{Highest High}_{10} - \text{Lowest Low}_{10}} \times 100
-\end{equation}
-
-\subsection{Trading Signal for \%K}
-\begin{equation}
-\%K_{td} = 
-\begin{cases} 
+\textbf{Stochastic Oscillator (\%K and \%D)} & 
+$\%K = \frac{\text{Price} - \text{Lowest Low}_{10}}{\text{Highest High}_{10} - \text{Lowest Low}_{10}} \times 100$ &
+$\%K_{td} = \begin{cases} 
 1 & \text{if } \%K > \%K_{\text{shift}(1)} \\
 0 & \text{otherwise}
-\end{cases}
-\end{equation}
-
-\subsection{\%D Calculation}
-\begin{equation}
-\%D = \frac{\sum_{i=0}^{2} \%K_i}{3}
-\end{equation}
-
-\subsection{Trading Signal for \%D}
-\begin{equation}
-\%D_{td} = 
-\begin{cases} 
+\end{cases}$ \\
+& $\%D = \frac{\sum_{i=0}^{2} \%K_i}{3}$ & 
+$\%D_{td} = \begin{cases} 
 1 & \text{if } \%D > \%D_{\text{shift}(1)} \\
 0 & \text{otherwise}
-\end{cases}
-\end{equation}
+\end{cases}$ \\
+\hline
 
-\section{Relative Strength Index (RSI)}
-
-\subsection{RSI Calculation}
-\begin{equation}
-\Delta \text{Price} = \text{Price}_{i} - \text{Price}_{i-1}
-\end{equation}
-\begin{equation}
-\text{Gain} = \frac{\sum_{i=0}^{13} \max(\Delta \text{Price}_i, 0)}{14}
-\end{equation}
-\begin{equation}
-\text{Loss} = \frac{\sum_{i=0}^{13} \max(-\Delta \text{Price}_i, 0)}{14}
-\end{equation}
-\begin{equation}
-RS = \frac{\text{Gain}}{\text{Loss}}
-\end{equation}
-\begin{equation}
-RSI = 100 - \frac{100}{1 + RS}
-\end{equation}
-
-\subsection{Trading Signal for RSI}
-\begin{equation}
-RSI_{td} = 
-\begin{cases} 
+\textbf{Relative Strength Index (RSI)} & 
+$\Delta \text{Price} = \text{Price}_{i} - \text{Price}_{i-1}$ \\
+& $\text{Gain} = \frac{\sum_{i=0}^{13} \max(\Delta \text{Price}_i, 0)}{14}$ \\
+& $\text{Loss} = \frac{\sum_{i=0}^{13} \max(-\Delta \text{Price}_i, 0)}{14}$ \\
+& $RS = \frac{\text{Gain}}{\text{Loss}}$ \\
+& $RSI = 100 - \frac{100}{1 + RS}$ &
+$RSI_{td} = \begin{cases} 
 -1 & \text{if RSI} \geq 70 \\
 1 & \text{if RSI} \leq 30 \\
 0 & \text{otherwise}
-\end{cases}
-\end{equation}
+\end{cases}$ \\
+\hline
 
-\section{Momentum}
-
-\subsection{Momentum Calculation}
-\begin{equation}
-\text{Momentum} = \text{Price} - \text{Price}_{\text{shift}(10)}
-\end{equation}
-
-\subsection{Trading Signal for Momentum}
-\begin{equation}
-\text{Momentum}_{td} = 
-\begin{cases} 
+\textbf{Momentum} & 
+$\text{Momentum} = \text{Price} - \text{Price}_{\text{shift}(10)}$ &
+$\text{Momentum}_{td} = \begin{cases} 
 1 & \text{if Momentum} > 1 \\
 0 & \text{otherwise}
-\end{cases}
-\end{equation}
+\end{cases}$ \\
+\hline
 
-\section{Moving Average Convergence Divergence (MACD)}
-
-\subsection{MACD Calculation}
-\begin{equation}
-EMA_{12} = \text{Price}_{\text{ewm(span=12, adjust=False).mean()}}
-\end{equation}
-\begin{equation}
-EMA_{26} = \text{Price}_{\text{ewm(span=26, adjust=False).mean()}}
-\end{equation}
-\begin{equation}
-MACD = EMA_{12} - EMA_{26}
-\end{equation}
-\begin{equation}
-\text{Signal Line} = MACD_{\text{ewm(span=9, adjust=False).mean()}}
-\end{equation}
-
-\subsection{Trading Signal for MACD}
-\begin{equation}
-MACD_{td} = 
-\begin{cases} 
+\textbf{Moving Average Convergence Divergence (MACD)} & 
+$EMA_{12} = \text{Price}_{\text{ewm(span=12, adjust=False).mean()}}$ \\
+& $EMA_{26} = \text{Price}_{\text{ewm(span=26, adjust=False).mean()}}$ \\
+& $MACD = EMA_{12} - EMA_{26}$ \\
+& $\text{Signal Line} = MACD_{\text{ewm(span=9, adjust=False).mean()}}$ & 
+$MACD_{td} = \begin{cases} 
 1 & \text{if MACD} > MACD_{\text{shift}(1)} \\
 0 & \text{otherwise}
-\end{cases}
-\end{equation}
+\end{cases}$ \\
+\hline
 
-\section{Commodity Channel Index (CCI)}
-
-\subsection{CCI Calculation}
-\begin{equation}
-TP = \frac{\text{High} + \text{Low} + \text{Price}}{3}
-\end{equation}
-\begin{equation}
-SMA_{TP} = \frac{\sum_{i=0}^{19} TP_i}{20}
-\end{equation}
-\begin{equation}
-MD = \frac{\sum_{i=0}^{19} \left| TP_i - SMA_{TP} \right|}{20}
-\end{equation}
-\begin{equation}
-CCI = \frac{TP - SMA_{TP}}{0.015 \times MD}
-\end{equation}
-
-\subsection{Trading Signal for CCI}
-\begin{equation}
-CCI_{td} = 
-\begin{cases} 
+\textbf{Commodity Channel Index (CCI)} & 
+$TP = \frac{\text{High} + \text{Low} + \text{Price}}{3}$ \\
+& $SMA_{TP} = \frac{\sum_{i=0}^{19} TP_i}{20}$ \\
+& $MD = \frac{\sum_{i=0}^{19} \left| TP_i - SMA_{TP} \right|}{20}$ \\
+& $CCI = \frac{TP - SMA_{TP}}{0.015 \times MD}$ &
+$CCI_{td} = \begin{cases} 
 -1 & \text{if CCI} \geq 100 \\
 1 & \text{if CCI} \leq -100 \\
 0 & \text{otherwise}
-\end{cases}
-\end{equation}
+\end{cases}$ \\
+\hline
+
+\end{tabular}
+\caption{Technical Indicators and Their Trading Signals}
+\end{table}
+
+\section{Descriptions}
+
+\textbf{10-Day Moving Average (10D MA)}: A short-term trend indicator showing the average price over 10 days. \textit{Buy} when price is above MA, indicating an uptrend. \textit{Sell} when below, indicating a downtrend.
+
+\textbf{30-Day Moving Average (30D MA)}: A medium-term trend indicator showing the average price over 30 days. \textit{Buy} when price is above 3MA, indicating an uptrend. \textit{Sell} when below, indicating a downtrend.
+
+\textbf{Stochastic Oscillator (\%K and \%D)}: Measures momentum by comparing a security's closing price to its price range over a specific period. \textit{Buy} if \%K or \%D is increasing, indicating upward momentum. \textit{Sell} if decreasing.
+
+\textbf{Relative Strength Index (RSI)}: Measures the speed and change of price movements. \textit{Buy} when RSI $\leq$ 30 (oversold). \textit{Sell} when RSI $\geq$ 70 (overbought).
+
+\textbf{Momentum}: Measures the rate of price change. \textit{Buy} if Momentum is positive, indicating continued upward movement. \textit{Sell} if negative.
+
+\textbf{Moving Average Convergence Divergence (MACD)}: Indicates changes in momentum by comparing short-term and long-term moving averages. \textit{Buy} if MACD is rising. \textit{Sell} if falling.
+
+\textbf{Commodity Channel Index (CCI)}: Measures the deviation of the price from its average. \textit{Buy} when CCI $\leq$ -100 (potential bottom). \textit{Sell} when CCI $\geq$ 100 (potential top).
 
 \end{document}
