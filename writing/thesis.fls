@@ -1,6 +1,0 @@
-PWD p:/6. DSMA/99. Thesis/Github/thesis/writing
-INPUT c:/Users/mulle/AppData/Roaming/TinyTeX/texmf.cnf
-INPUT c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-dist/web2c/texmf.cnf
-INPUT c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT p:/6. DSMA/99. Thesis/Github/thesis/writing/thesis.tex
-OUTPUT thesis.log
