@@ -95,7 +95,9 @@ The %D is a 3-day moving average of %K, providing a smoothed line to identify th
 ## Relative Strength Index (RSI)
 
 ### RSI Calculation
-![RSI](img/RSI.png)
+<p align="center">
+  <img src="img/RSI.png" alt="Momentum" width="300"/>
+</p>
 
 ### Trading Signal for RSI
 ![RSI TD](img/RSItd.png)
