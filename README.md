@@ -70,10 +70,10 @@ Wikipedia page views for BTC, ETH, and SOL are used to measure the general publi
 The 10-Day Moving Average (10D MA) smooths out short-term price fluctuations to reveal trends. A price above the 10D MA suggests upward momentum, signaling a potential buy opportunity. This signal makes sense because it indicates that recent prices are higher than the average of the last 10 days, often a bullish indicator.
 
 ## 30-Day Moving Average (30D MA)
-![30 Day Moving Average TD](img/30MA.png)
+![30 Day Moving Average TD](img/3MA.png)
 
 ### Trading Signal for 30D MA
-![30 Day Moving Average TD](img/30MAtd.png)
+![30 Day Moving Average TD](img/3MAtd.png)
 The 30-Day Moving Average (30D MA) is used to gauge medium-term price trends. When the price is above the 30D MA, it indicates that the market is experiencing an upward trend, which can be a buy signal. This makes sense as it reflects sustained positive momentum over a longer period compared to the 10D MA.
 
 ## Stochastic Oscillator (%K and %D)
