@@ -58,16 +58,7 @@ Google Trends data is collected for BTC, ETH, and SOL to understand the relative
 ### 3. Wikipedia Page Views
 Wikipedia page views for BTC, ETH, and SOL are used to measure the general public's interest in these cryptocurrencies. This data serves as a proxy for market sentiment and public awareness.
 
-### 4. Technical Indicators
-Various technical indicators are calculated to provide additional insights into price movements. Below are the formulas used for these indicators:
-
-# Technical Analysis Indicator Calculations
-
-This project includes various technical analysis indicators calculated using pandas. Below are the formulas used for each indicator, formatted for clarity.
-
-## Moving Averages (MA)
-
-# Technical Indicators and Trading Signals
+### Technical Indicators and Trading Signals
 
 ## 10-Day Moving Average (10D MA)
 $$
@@ -81,6 +72,7 @@ MA_{td} = \begin{cases}
 0 & \text{otherwise}
 \end{cases}
 $$
+The 10-Day Moving Average (10D MA) smooths out short-term price fluctuations to reveal trends. A price above the 10D MA suggests upward momentum, signaling a potential buy opportunity. This signal makes sense because it indicates that recent prices are higher than the average of the last 10 days, often a bullish indicator.
 
 ## 30-Day Moving Average (30D MA)
 $$
@@ -94,6 +86,7 @@ $$
 0 & \text{otherwise}
 \end{cases}
 $$
+The 30-Day Moving Average (30D MA) is used to gauge medium-term price trends. When the price is above the 30D MA, it indicates that the market is experiencing an upward trend, which can be a buy signal. This makes sense as it reflects sustained positive momentum over a longer period compared to the 10D MA.
 
 ## Stochastic Oscillator (%K and %D)
 
@@ -109,6 +102,7 @@ $$
 0 & \text{otherwise}
 \end{cases}
 $$
+The %K of the Stochastic Oscillator compares a stock's closing price to its price range over a specified period, usually 10 days. An upward %K signal indicates that the current price is closing near the high of the range, suggesting buying pressure. This is seen as a bullish indicator since it shows the stock's strength relative to its recent trading range.
 
 ### %D Calculation
 $$
@@ -122,6 +116,7 @@ $$
 0 & \text{otherwise}
 \end{cases}
 $$
+The %D is a 3-day moving average of %K, providing a smoothed line to identify the trend. An upward %D signal shows that the %K line is increasing over several days, indicating continued buying interest. This makes sense as a bullish indicator because it confirms the momentum shown by the %K line over a more extended period.
 
 ## Relative Strength Index (RSI)
 
@@ -150,6 +145,7 @@ RSI_{td} = \begin{cases}
 0 & \text{otherwise}
 \end{cases}
 $$
+The RSI measures the speed and change of price movements on a scale of 0 to 100. An RSI above 70 indicates overbought conditions, signaling a potential sell opportunity, while an RSI below 30 indicates oversold conditions, suggesting a buy. These signals make sense because they identify extreme price conditions where a reversal is likely.
 
 ## Momentum
 
@@ -165,6 +161,7 @@ $$
 0 & \text{otherwise}
 \end{cases}
 $$
+Momentum measures the rate of change of a stock's price. A positive momentum signal indicates that the current price is significantly higher than the price 10 days ago, suggesting a strong upward trend. This is a bullish signal as it reflects accelerating price increases, often leading to further gains.
 
 ## Moving Average Convergence Divergence (MACD)
 
@@ -189,6 +186,7 @@ MACD_{td} = \begin{cases}
 0 & \text{otherwise}
 \end{cases}
 $$
+The MACD indicates the relationship between two moving averages of a stock's price. An upward MACD signal suggests that the short-term moving average is rising faster than the long-term average, indicating bullish momentum. This makes sense as a buy signal because it shows increasing positive sentiment and potential for further gains.
 
 ## Commodity Channel Index (CCI)
 
@@ -214,6 +212,7 @@ CCI_{td} = \begin{cases}
 0 & \text{otherwise}
 \end{cases}
 $$
+The CCI measures the difference between a stock's typical price and its moving average, normalized by mean absolute deviation. A CCI above 100 indicates overbought conditions, suggesting a sell, while below -100 indicates oversold conditions, suggesting a buy. These signals are logical as they help identify extreme price levels where reversals are likely.
 
 
 
