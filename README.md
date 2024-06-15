@@ -65,85 +65,40 @@ Wikipedia page views for BTC, ETH, and SOL are used to measure the general publi
 ![10 Day Moving Average](img/10MA.png)
 
 ### Trading Signal for 10D MA
-$$
-MA_{td} = \begin{cases} 
-1 & \text{if Price} > MA \\
-0 & \text{otherwise}
-\end{cases}
-$$
+![10 Day Moving Average TD](img/10MAtd.png)
+
 The 10-Day Moving Average (10D MA) smooths out short-term price fluctuations to reveal trends. A price above the 10D MA suggests upward momentum, signaling a potential buy opportunity. This signal makes sense because it indicates that recent prices are higher than the average of the last 10 days, often a bullish indicator.
 
 ## 30-Day Moving Average (30D MA)
-$$
-3MA = \frac{\sum_{i=0}^{29} \text{Price}_i}{30}
-$$
+![30 Day Moving Average TD](img/30MA.png)
 
 ### Trading Signal for 30D MA
-$$
-3MA_{td} = \begin{cases} 
-1 & \text{if Price} > 3MA \\
-0 & \text{otherwise}
-\end{cases}
-$$
+![30 Day Moving Average TD](img/30MAtd.png)
 The 30-Day Moving Average (30D MA) is used to gauge medium-term price trends. When the price is above the 30D MA, it indicates that the market is experiencing an upward trend, which can be a buy signal. This makes sense as it reflects sustained positive momentum over a longer period compared to the 10D MA.
 
 ## Stochastic Oscillator (%K and %D)
 
 ### %K Calculation
-$$
-\%K = \frac{\text{Price} - \text{Lowest Low}_{10}}{\text{Highest High}_{10} - \text{Lowest Low}_{10}} \times 100
-$$
+![%K](img/%K.png)
 
 ### Trading Signal for %K
-$$
-\%K_{td} = \begin{cases} 
-1 & \text{if } \%K > \%K_{\text{shift}(1)} \\
-0 & \text{otherwise}
-\end{cases}
-$$
+![%K TD](img/%Ktd.png)
 The %K of the Stochastic Oscillator compares a stock's closing price to its price range over a specified period, usually 10 days. An upward %K signal indicates that the current price is closing near the high of the range, suggesting buying pressure. This is seen as a bullish indicator since it shows the stock's strength relative to its recent trading range.
 
 ### %D Calculation
-$$
-\%D = \frac{\sum_{i=0}^{2} \%K_i}{3}
-$$
+![%D TD](img/%D.png)
 
 ### Trading Signal for %D
-$$
-\%D_{td} = \begin{cases} 
-1 & \text{if } \%D > \%D_{shift}(1) \\
-0 & \text{otherwise}
-\end{cases}
-$$
+![%D TD](img/%Dtd.png)
 The %D is a 3-day moving average of %K, providing a smoothed line to identify the trend. An upward %D signal shows that the %K line is increasing over several days, indicating continued buying interest. This makes sense as a bullish indicator because it confirms the momentum shown by the %K line over a more extended period.
 
 ## Relative Strength Index (RSI)
 
 ### RSI Calculation
-$$
-\Delta \text{Price} = \text{Price}_{i} - \text{Price}_{i-1}
-$$
-$$
-\text{Gain} = \frac{\sum_{i=0}^{13} \max(\Delta \text{Price}_i, 0)}{14}
-$$
-$$
-\text{Loss} = \frac{\sum_{i=0}^{13} \max(-\Delta \text{Price}_i, 0)}{14}
-$$
-$$
-RS = \frac{\text{Gain}}{\text{Loss}}
-$$
-$$
-RSI = 100 - \frac{100}{1 + RS}
-$$
+![RSI](img/RSI.png)
 
 ### Trading Signal for RSI
-$$
-RSI_{td} = \begin{cases} 
--1 & \text{if RSI} \geq 70 \\
-1 & \text{if RSI} \leq 30 \\
-0 & \text{otherwise}
-\end{cases}
-$$
+![RSI TD](img/RSItd.png)
 The RSI measures the speed and change of price movements on a scale of 0 to 100. An RSI above 70 indicates overbought conditions, signaling a potential sell opportunity, while an RSI below 30 indicates oversold conditions, suggesting a buy. These signals make sense because they identify extreme price conditions where a reversal is likely.
 
 ## Momentum
