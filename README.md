@@ -189,3 +189,8 @@ Total Value Locked (TVL) is a crucial metric in the cryptocurrency and decentral
 
 From a marketing perspective, TVL serves as a compelling indicator of a platform’s credibility and growth potential, attracting more users and investors. Higher TVL figures often correlate with increased media coverage and user interest, thereby enhancing the marketing appeal and perceived stability of the platform. Analyzing TVL trends can also help marketers tailor their strategies to capitalize on emerging opportunities within the crypto market.
 
+## Methadology
+
+<p align="center">
+  <img src="img/Methadology/Slide1.jpeg" alt="CCI TD" width="750"/>
+</p>
