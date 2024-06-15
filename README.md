@@ -58,112 +58,113 @@ Google Trends data is collected for BTC, ETH, and SOL to understand the relative
 ### 3. Wikipedia Page Views
 Wikipedia page views for BTC, ETH, and SOL are used to measure the general public's interest in these cryptocurrencies. This data serves as a proxy for market sentiment and public awareness.
 
-### Technical Indicators and Trading Signals
+### 4. Technical Indicators and Trading Signals
 
 This project includes various technical analysis indicators calculated using pandas. Below are the formulas used for each indicator, formatted for clarity.
 
-#### 10-Day Moving Average (10D MA)
+#### Moving Averages
+##### 10-Day Moving Average (10D MA)
 
 <p align="center">
   <img src="img/10MA.png" alt="10 Day Moving Average" width="250"/>
 </p>
 
-#### Trading Signal for 10D MA
+##### Trading Signal for 10D MA
 <p align="center">
   <img src="img/10MAtd.png" alt="10 Day Moving Average TD" width="250"/>
 </p>
 
 The 10-Day Moving Average (10D MA) smooths out short-term price fluctuations to reveal trends. A price above the 10D MA suggests upward momentum, signaling a potential buy opportunity. This signal makes sense because it indicates that recent prices are higher than the average of the last 10 days, often a bullish indicator.
 
-## 30-Day Moving Average (30D MA)
+##### 30-Day Moving Average (30D MA)
 
 <p align="center">
   <img src="img/3MA.png" alt="30 Day Moving Average" width="250"/>
 </p>
 
-#### Trading Signal for 30D MA
+##### Trading Signal for 30D MA
 <p align="center">
   <img src="img/3MAtd.png" alt="30 Day Moving Average TD" width="250"/>
 </p>
 
 The 30-Day Moving Average (30D MA) is used to gauge medium-term price trends. When the price is above the 30D MA, it indicates that the market is experiencing an upward trend, which can be a buy signal. This makes sense as it reflects sustained positive momentum over a longer period compared to the 10D MA.
 
-### Stochastic Oscillator (%K and %D)
+#### Stochastic Oscillator (%K and %D)
 
-#### %K Calculation
+##### %K Calculation
 <p align="center">
   <img src="img/K.png" alt="%K Calculation" width="250"/>
 </p>
 
-#### Trading Signal for %K
+##### Trading Signal for %K
 <p align="center">
   <img src="img/Ktd.png" alt="%K TD" width="250"/>
 </p>
 
 The %K of the Stochastic Oscillator compares a stock's closing price to its price range over a specified period, usually 10 days. An upward %K signal indicates that the current price is closing near the high of the range, suggesting buying pressure. This is seen as a bullish indicator since it shows the stock's strength relative to its recent trading range.
 
-#### %D Calculation
+##### %D Calculation
 <p align="center">
   <img src="img/D.png" alt="%D Calculation" width="250"/>
 </p>
 
-#### Trading Signal for %D
+##### Trading Signal for %D
 <p align="center">
   <img src="img/Dtd.png" alt="%D TD" width="250"/>
 </p>
 
 The %D is a 3-day moving average of %K, providing a smoothed line to identify the trend. An upward %D signal shows that the %K line is increasing over several days, indicating continued buying interest. This makes sense as a bullish indicator because it confirms the momentum shown by the %K line over a more extended period.
 
-### Relative Strength Index (RSI)
+#### Relative Strength Index (RSI)
 
-#### RSI Calculation
+##### RSI Calculation
 <p align="center">
   <img src="img/RSI.png" alt="RSI Calculation" width="250"/>
 </p>
 
-#### Trading Signal for RSI
+##### Trading Signal for RSI
 <p align="center">
   <img src="img/RSItd.png" alt="RSI TD" width="250"/>
 </p>
 
 The RSI measures the speed and change of price movements on a scale of 0 to 100. An RSI above 70 indicates overbought conditions, signaling a potential sell opportunity, while an RSI below 30 indicates oversold conditions, suggesting a buy. These signals make sense because they identify extreme price conditions where a reversal is likely.
 
-### Momentum
+#### Momentum
 
-#### Momentum Calculation
+##### Momentum Calculation
 <p align="center">
   <img src="img/Momentum.png" alt="Momentum Calculation" width="250"/>
 </p>
 
-#### Trading Signal for Momentum
+##### Trading Signal for Momentum
 <p align="center">
   <img src="img/Momentumtd.png" alt="Momentum TD" width="250"/>
 </p>
 
 Momentum measures the rate of change of a stock's price. A positive momentum signal indicates that the current price is significantly higher than the price 10 days ago, suggesting a strong upward trend. This is a bullish signal as it reflects accelerating price increases, often leading to further gains.
 
-### Moving Average Convergence Divergence (MACD)
+#### Moving Average Convergence Divergence (MACD)
 
-#### MACD Calculation
+##### MACD Calculation
 <p align="center">
   <img src="img/MACD.png" alt="MACD Calculation" width="250"/>
 </p>
 
-#### Trading Signal for MACD
+##### Trading Signal for MACD
 <p align="center">
   <img src="img/MACDtd.png" alt="MACD TD" width="250"/>
 </p>
 
 The MACD indicates the relationship between two moving averages of a stock's price. An upward MACD signal suggests that the short-term moving average is rising faster than the long-term average, indicating bullish momentum. This makes sense as a buy signal because it shows increasing positive sentiment and potential for further gains.
 
-### Commodity Channel Index (CCI)
+#### Commodity Channel Index (CCI)
 
-#### CCI Calculation
+##### CCI Calculation
 <p align="center">
   <img src="img/CCI.png" alt="CCI Calculation" width="250"/>
 </p>
 
-#### Trading Signal for CCI
+##### Trading Signal for CCI
 <p align="center">
   <img src="img/CCItd.png" alt="CCI TD" width="250"/>
 </p>
@@ -182,4 +183,9 @@ Top 100 Reddit posts per respective cryptocurrency subreddit (BTC, ETH, SOL) are
 - Overall Score: The overall score of the post.
 
 This data will be used for sentiment analysis and topic modeling to gain insights into community sentiment and trending topics.
+
+### 6. TVL
+Total Value Locked (TVL) is a crucial metric in the cryptocurrency and decentralized finance (DeFi) space, representing the total capital held within a specific protocol, encompassing all the assets staked, loaned, or otherwise utilized. Analyzing daily TVL data in dollars for Bitcoin, Ethereum, and Solana, this metric provides insightful analytics on market confidence and the overall health of these blockchain ecosystems. By tracking TVL, one can gauge user engagement and investment trends, helping to identify which protocols are gaining or losing traction. 
+
+From a marketing perspective, TVL serves as a compelling indicator of a platform’s credibility and growth potential, attracting more users and investors. Higher TVL figures often correlate with increased media coverage and user interest, thereby enhancing the marketing appeal and perceived stability of the platform. Analyzing TVL trends can also help marketers tailor their strategies to capitalize on emerging opportunities within the crypto market.
 
