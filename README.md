@@ -61,9 +61,8 @@ Wikipedia page views for BTC, ETH, and SOL are used to measure the general publi
 ### Technical Indicators and Trading Signals
 
 ## 10-Day Moving Average (10D MA)
-$$
-MA = \frac{\sum_{i=0}^{9} \text{Price}_i}{10}
-$$
+
+![10 Day Moving Average](img/10MA.png)
 
 ### Trading Signal for 10D MA
 $$
