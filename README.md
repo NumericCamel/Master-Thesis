@@ -79,17 +79,17 @@ The 30-Day Moving Average (30D MA) is used to gauge medium-term price trends. Wh
 ## Stochastic Oscillator (%K and %D)
 
 ### %K Calculation
-![%K](img/%K.png)
+![%K](img/K.png)
 
 ### Trading Signal for %K
-![%K TD](img/%Ktd.png)
+![%K TD](img/Ktd.png)
 The %K of the Stochastic Oscillator compares a stock's closing price to its price range over a specified period, usually 10 days. An upward %K signal indicates that the current price is closing near the high of the range, suggesting buying pressure. This is seen as a bullish indicator since it shows the stock's strength relative to its recent trading range.
 
 ### %D Calculation
-![%D TD](img/%D.png)
+![%D TD](img/D.png)
 
 ### Trading Signal for %D
-![%D TD](img/%Dtd.png)
+![%D TD](img/Dtd.png)
 The %D is a 3-day moving average of %K, providing a smoothed line to identify the trend. An upward %D signal shows that the %K line is increasing over several days, indicating continued buying interest. This makes sense as a bullish indicator because it confirms the momentum shown by the %K line over a more extended period.
 
 ## Relative Strength Index (RSI)
@@ -104,68 +104,30 @@ The RSI measures the speed and change of price movements on a scale of 0 to 100.
 ## Momentum
 
 ### Momentum Calculation
-$$
-\text{Momentum} = \text{Price} - \text{Price}_{shift}(10)
-$$
-
+![Momentum](img/Momentum.png)
 ### Trading Signal for Momentum
-$$
-\text{Momentum}_{td} = \begin{cases} 
-1 & \text{if Momentum} > 1 \\
-0 & \text{otherwise}
-\end{cases}
-$$
+![Momentum TD](img/Momentumtd.png)
 Momentum measures the rate of change of a stock's price. A positive momentum signal indicates that the current price is significantly higher than the price 10 days ago, suggesting a strong upward trend. This is a bullish signal as it reflects accelerating price increases, often leading to further gains.
 
 ## Moving Average Convergence Divergence (MACD)
 
 ### MACD Calculation
-$$
-EMA_{12} = \text{Price}_{\text{ewm(span=12, adjust=False).mean()}}
-$$
-$$
-EMA_{26} = \text{Price}_{\text{ewm(span=26, adjust=False).mean()}}
-$$
-$$
-MACD = EMA_{12} - EMA_{26}
-$$
-$$
-\text{Signal Line} = MACD_{\text{ewm(span=9, adjust=False).mean()}}
-$$
+![MACD](img/MACD.png)
 
 ### Trading Signal for MACD
-$$
-MACD_{td} = \begin{cases} 
-1 & \text{if MACD} > MACD_{shift}(1) \\
-0 & \text{otherwise}
-\end{cases}
-$$
+![MACD td](img/MACDtd.png)
+
 The MACD indicates the relationship between two moving averages of a stock's price. An upward MACD signal suggests that the short-term moving average is rising faster than the long-term average, indicating bullish momentum. This makes sense as a buy signal because it shows increasing positive sentiment and potential for further gains.
 
 ## Commodity Channel Index (CCI)
 
 ### CCI Calculation
-$$
-TP = \frac{\text{High} + \text{Low} + \text{Price}}{3}
-$$
-$$
-SMA_{TP} = \frac{\sum_{i=0}^{19} TP_i}{20}
-$$
-$$
-MD = \frac{\sum_{i=0}^{19} \left| TP_i - SMA_{TP} \right|}{20}
-$$
-$$
-CCI = \frac{TP - SMA_{TP}}{0.015 \times MD}
-$$
+![CCI](img/CCI.png)
+
 
 ### Trading Signal for CCI
-$$
-CCI_{td} = \begin{cases} 
--1 & \text{if CCI} \geq 100 \\
-1 & \text{if CCI} \leq -100 \\
-0 & \text{otherwise}
-\end{cases}
-$$
+![CCI TD](img/CCItd.png)
+
 The CCI measures the difference between a stock's typical price and its moving average, normalized by mean absolute deviation. A CCI above 100 indicates overbought conditions, suggesting a sell, while below -100 indicates oversold conditions, suggesting a buy. These signals are logical as they help identify extreme price levels where reversals are likely.
 
 
