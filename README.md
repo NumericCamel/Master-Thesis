@@ -236,6 +236,13 @@ Three distinct datasets: Gold, S&P 500 (SNP), and VIX historical data. Each data
 
 - VIX Data: The VIX, also known as the CBOE Volatility Index, measures market expectations of near-term volatility conveyed by S&P 500 stock index option prices. This dataset includes the VIX's historical prices, providing insights into market volatility and risk. The VIX is often referred to as the "fear gauge" of the market, as it reflects investor uncertainty and market sentiment.
 
+### Final Data Set
+Here's an overview of the final dataset that will ultimately be fed into the models. 
+
+<p align="center">
+  <img src="img/model_data.png" alt="CCI TD" width="750"/>
+</p>
+
 ## Methadology
 
 <p align="center">
