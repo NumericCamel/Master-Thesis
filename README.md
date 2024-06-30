@@ -227,6 +227,15 @@ Total Value Locked (TVL) is a crucial metric in the cryptocurrency and decentral
 
 From a marketing perspective, TVL serves as a compelling indicator of a platform’s credibility and growth potential, attracting more users and investors. Higher TVL figures often correlate with increased media coverage and user interest, thereby enhancing the marketing appeal and perceived stability of the platform. Analyzing TVL trends can also help marketers tailor their strategies to capitalize on emerging opportunities within the crypto market.
 
+### 7. Gold, SNP, and Vix Historic Data
+Three distinct datasets: Gold, S&P 500 (SNP), and VIX historical data. Each dataset includes crucial financial metrics such as price, open, high, low, close, and volume (where applicable), which provide a comprehensive view of the market dynamics and facilitate the development of predictive models.
+
+- Gold Data: This dataset encompasses historical data on gold prices, including the opening, high, low, and closing prices. Gold is a significant asset in the financial markets, often considered a safe-haven investment. The dataset helps in understanding the price movements and volatility associated with gold over time.
+
+- S&P 500 (SNP) Data: The S&P 500 dataset includes historical data for this widely followed stock market index. It covers the opening, high, low, and closing prices, as well as the trading volume. The S&P 500 is a key indicator of the overall performance of the U.S. stock market and is used to gauge economic conditions and investor sentiment.
+
+- VIX Data: The VIX, also known as the CBOE Volatility Index, measures market expectations of near-term volatility conveyed by S&P 500 stock index option prices. This dataset includes the VIX's historical prices, providing insights into market volatility and risk. The VIX is often referred to as the "fear gauge" of the market, as it reflects investor uncertainty and market sentiment.
+
 ## Methadology
 
 <p align="center">
