@@ -261,3 +261,38 @@ ROC Curves for all the models
   <img src="img/Model_Results/RFC_ROC.png" alt="RFC ROC" width="250"/>
   <img src="img/Model_Results/LSTM_ROC.png" alt="LSTM ROC" width="250"/>
 </div>
+
+### Global Interpretation: SHAPley Values
+A SHAP bee plot is a visualization tool used to interpret machine learning models by displaying the impact of each feature on the model's output. SHAP (SHapley Additive exPlanations) values are based on cooperative game theory and provide a way to understand how individual features contribute to a prediction.
+
+**Components of the SHAP Bee Plot**
+- Features: Listed on the y-axis, these are the input variables used by the model. In the context of predicting Bitcoin's price, features include various technical indicators, percentage changes, and momentum indicators.
+
+- SHAP Values: Represented on the x-axis, SHAP values show the impact of each feature on the model's prediction. A positive SHAP value indicates that the feature pushes the prediction towards a higher value (in this case, predicting a price increase), while a negative SHAP value suggests the opposite.
+
+- Color Gradient: The color of the dots represents the actual value of the feature, with a gradient from blue (low value) to red (high value). This helps in understanding how different values of a feature influence the prediction.
+
+- Dots and Spread: Each dot represents a SHAP value for a specific instance in the dataset. The spread of dots along the x-axis shows the distribution of the feature's impact. A wider spread indicates a more variable impact on the model's output.
+
+<p align="center">
+  <img src="img/Model_Results/SVM_SHAP_BEE.png" alt="CCI TD" width="750"/>
+</p>
+
+**Key Insights from the SHAP Bee Plot**
+Top Features Impacting Prediction:
+
+
+#### %K_td (Stochastic Oscillator Indicator - %K)
+High %K_td values (red dots), typically indicating a bullish signal, are inversely related to price prediction, suggesting a price decrease. Conversely, low %K_td values (blue dots) correlate with predicting price increases.
+
+##### Change %_lag1
+Higher values of Change %_lag1 (red dots) positively influence the prediction, indicating that if Bitcoin's price increased yesterday, it is more likely to increase again tomorrow. Conversely, lower values (blue dots) suggest a potential price drop.
+
+#### MACD_td (Moving Average Convergence Divergence)
+High MACD_td values (red dots), usually signaling a bullish trend, inversely relate to predicting a price decrease. Lower MACD_td values (blue dots) suggest an upward price prediction.
+
+#### %D_td (Stochastic Oscillator Indicator - %D)
+High %D_td values (red dots) indicate a bullish signal but are inversely correlated with the price prediction, suggesting a price decrease. Low %D_td values (blue dots) correlate with predicting a price increase.
+
+##### MA_td (Moving Average)
+High MA_td values (red dots), typically indicating an upward trend, are inversely related to price prediction, suggesting a price decrease. Low MA_td values (blue dots) indicate a downward trend but predict a price increase.
