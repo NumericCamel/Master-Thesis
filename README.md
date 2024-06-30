@@ -232,3 +232,16 @@ From a marketing perspective, TVL serves as a compelling indicator of a platform
 <p align="center">
   <img src="img/Methadology/Slide1.jpeg" alt="CCI TD" width="750"/>
 </p>
+
+
+## Results
+In this study, we evaluated the performance of three machine learning models: Random Forest Classification (RFC), Support Vector Classification (SVC), and Long Short-Term Memory (LSTM) neural networks. The Random Forest model demonstrated the highest performance, achieving an accuracy of 94%. The Support Vector Classification model followed, with an accuracy of 88%. For both the Random Forest and Support Vector Classification models, we incorporated a lag of three days to account for time series data.
+
+The LSTM neural network, with an architecture comprising an input layer, a hidden layer with 100 units, another hidden layer with 50 units, and a single output unit, achieved an accuracy of 69%. Despite the lower accuracy compared to the RFC and SVC models, the LSTM's performance is noteworthy given the complexity of the time series data it was designed to handle.
+
+ROC Curves for all the models
+<div style="display: flex; justify-content: center;">
+  <img src="img/Model_Results/SVC_ROC.png" alt="SVC ROC" width="250"/>
+  <img src="img/Model_Results/RFC_ROC.png.jpeg" alt="RFC ROC" width="250"/>
+  <img src="img/Model_Results/LSTM_ROC.png" alt="LSTM ROC" width="250"/>
+</div>
