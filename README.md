@@ -242,6 +242,6 @@ The LSTM neural network, with an architecture comprising an input layer, a hidde
 ROC Curves for all the models
 <div style="display: flex; justify-content: center;">
   <img src="img/Model_Results/SVC_ROC.png" alt="SVC ROC" width="250"/>
-  <img src="img/Model_Results/RFC_ROC.png.jpeg" alt="RFC ROC" width="250"/>
+  <img src="img/Model_Results/RFC_ROC.png" alt="RFC ROC" width="250"/>
   <img src="img/Model_Results/LSTM_ROC.png" alt="LSTM ROC" width="250"/>
 </div>
