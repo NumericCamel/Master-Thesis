@@ -297,9 +297,11 @@ The optimal hyperplane is determined by maximizing the margin between the two cl
 
 Mathematically, this can be expressed as an optimization problem:
 
-```
-minimize    $(1/2)||w||^2$
-subject to  $y_i(w^T x_i + b) ≥ 1, for i = 1, ..., n$
+minimize:
+    (1/2)||w||^2
+
+subject to:
+    y_i(w^T x_i + b) ≥ 1,  for i = 1, ..., n
 ```
 
 Where:
