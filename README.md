@@ -266,7 +266,7 @@ This study employs a comparative analysis of three machine learning models to pr
 
 Our primary objective is to evaluate and compare the performance of these models in forecasting whether the Bitcoin price will increase or decrease on the following day, based on historical price data and other relevant features.
 
-### Dataset
+#### Dataset
 
 The dataset utilized in this study comprises various features derived from historical Bitcoin price data, including but not limited to:
 
@@ -277,7 +277,7 @@ The dataset utilized in this study comprises various features derived from histo
 
 The dependent variable is a binary indicator (0 or 1) representing whether the Bitcoin price will rise the next day, making this a binary classification problem.
 
-### Model Overview
+#### Model Overview
 
 Each model brings unique strengths to the task:
 
@@ -285,11 +285,11 @@ Each model brings unique strengths to the task:
 2. **Support Vector Machine**: Excels in high-dimensional spaces and is effective when the number of dimensions exceeds the number of samples.
 3. **LSTM Classification**: Particularly suited for sequential data, capturing long-term dependencies in time series.
 
-## Support Vector Machine (SVM)
+### Support Vector Machine (SVM)
 
 Support Vector Machine is a powerful supervised learning algorithm used for both classification and regression tasks. In our study, we employ SVM for binary classification to predict Bitcoin price movements.
 
-### Theoretical Foundation
+#### Theoretical Foundation
 
 SVM operates on the principle of finding the optimal hyperplane that best separates the two classes in the feature space. In our case, these classes represent whether the Bitcoin price will increase (1) or not (0) the following day.
 
@@ -311,7 +311,7 @@ Where:
 - $y_i$ are the class labels (-1 or 1)
 - $b$ is the bias term
 
-### Kernel Trick
+#### Kernel Trick
 
 One of the key strengths of SVM is its ability to handle non-linear decision boundaries through the use of kernel functions. The kernel trick allows SVM to operate in a high-dimensional feature space without explicitly computing the coordinates of the data in that space.
 
@@ -328,7 +328,7 @@ Common kernel functions include:
 
 In our study, we experimented with different kernel functions to determine the most effective for our Bitcoin price prediction task.
 
-### Hyperparameter Tuning
+#### Hyperparameter Tuning
 
 To optimize the SVM model's performance, we conducted hyperparameter tuning using grid search with cross-validation. The key hyperparameters tuned include:
 
@@ -337,7 +337,7 @@ To optimize the SVM model's performance, we conducted hyperparameter tuning usin
 - **Gamma**: The kernel coefficient for RBF and polynomial kernels.
 - **Degree**: The degree of the polynomial kernel function (if used).
 
-### Implementation
+#### Implementation
 
 We implemented the SVM model using the scikit-learn library in Python. The general process followed these steps:
 
@@ -349,6 +349,54 @@ We implemented the SVM model using the scikit-learn library in Python. The gener
 
 By leveraging SVM's ability to handle high-dimensional data and capture complex decision boundaries, we aim to accurately predict Bitcoin price movements based on historical data and derived features.
 
+### Random Forest Classification
+
+Random Forest is an ensemble learning method that operates by constructing multiple decision trees during training and outputting the class that is the mode of the classes (classification) of the individual trees. In our study, we employ Random Forest for binary classification to predict Bitcoin price movements.
+
+#### Theoretical Foundation
+
+Random Forest builds upon the concept of decision trees, combining many trees to form a "forest". Each tree in the forest is built from a bootstrap sample of the training data, and at each node, a random subset of features is considered for splitting. This randomness helps to decorrelate the trees and make the forest more robust to overfitting.
+
+The algorithm can be summarized as follows:
+
+1. Create $n$ bootstrap samples of the original dataset.
+2. For each sample, grow a decision tree:
+   a. At each node, randomly select $m$ features from the total $M$ features.
+   b. Split the node using the feature that provides the best split according to the objective function, typically Gini impurity or information gain.
+   c. Repeat the above steps until a stopping criterion is met (e.g., minimum node size).
+3. For classification, the final prediction is the majority vote of all trees.
+
+#### Key Advantages
+
+1. **Robustness to Overfitting**: By averaging multiple decision trees, Random Forest reduces the risk of overfitting.
+2. **Feature Importance**: It provides a measure of feature importance, helping in feature selection and interpretation.
+3. **Handles Non-linearity**: Can capture complex, non-linear relationships in the data.
+4. **Minimal Hyperparameter Tuning**: Often performs well even with default hyperparameters.
+
+#### Hyperparameter Tuning
+
+While Random Forest can perform well with default settings, we conducted hyperparameter tuning to optimize performance. Key hyperparameters include:
+
+- **n_estimators**: The number of trees in the forest.
+- **max_depth**: The maximum depth of each tree.
+- **min_samples_split**: The minimum number of samples required to split an internal node.
+- **min_samples_leaf**: The minimum number of samples required to be at a leaf node.
+- **max_features**: The number of features to consider when looking for the best split.
+
+We used grid search with cross-validation to find the optimal combination of these hyperparameters.
+
+#### Implementation
+
+We implemented the Random Forest model using the scikit-learn library in Python. The process followed these steps:
+
+1. Data preprocessing: Handling missing values, encoding categorical variables, and scaling numerical features if necessary.
+2. Splitting the data into training and testing sets.
+3. Performing grid search with cross-validation to find optimal hyperparameters.
+4. Training the Random Forest model with the best hyperparameters on the entire training set.
+5. Evaluating the model's performance on the test set using metrics such as accuracy, precision, recall, and F1-score.
+6. Analyzing feature importance to understand which factors most influence Bitcoin price movements.
+
+By leveraging Random Forest's ability to handle complex relationships and provide insights into feature importance, we aim to accurately predict Bitcoin price movements and gain a deeper understanding of the factors that influence these movements.
 
 ## Results
 In this study, we evaluated the performance of three machine learning models: Random Forest Classification (RFC), Support Vector Classification (SVC), and Long Short-Term Memory (LSTM) neural networks. The Random Forest model demonstrated the highest performance, achieving an accuracy of 94%. The Support Vector Classification model followed, with an accuracy of 88%. For both the Random Forest and Support Vector Classification models, we incorporated a lag of three days to account for time series data.
