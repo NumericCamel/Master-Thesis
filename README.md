@@ -297,11 +297,9 @@ The optimal hyperplane is determined by maximizing the margin between the two cl
 
 Mathematically, this can be expressed as an optimization problem:
 
-```latex
-\begin{aligned}
-\text{minimize} \quad & \frac{1}{2}\|w\|^2 \\
-\text{subject to} \quad & y_i(w^T x_i + b) \geq 1, \quad \text{for } i = 1, \ldots, n
-\end{aligned}
+```
+minimize    (1/2)||w||^2
+subject to  y_i(w^T x_i + b) ≥ 1, for i = 1, ..., n
 ```
 
 Where:
@@ -317,19 +315,13 @@ One of the key strengths of SVM is its ability to handle non-linear decision bou
 Common kernel functions include:
 
 1. Linear: 
-   ```latex
-   K(x_i, x_j) = x_i^T x_j
-   ```
+   $K(x_i, x_j) = x_i^T x_j$
 
 2. Polynomial: 
-   ```latex
-   K(x_i, x_j) = (\gamma x_i^T x_j + r)^d
-   ```
+   $K(x_i, x_j) = (\gamma x_i^T x_j + r)^d$
 
 3. Radial Basis Function (RBF): 
-   ```latex
-   K(x_i, x_j) = \exp(-\gamma \|x_i - x_j\|^2)
-   ```
+   $K(x_i, x_j) = \exp(-\gamma \|x_i - x_j\|^2)$
 
 In our study, we experimented with different kernel functions to determine the most effective for our Bitcoin price prediction task.
 
@@ -353,7 +345,6 @@ We implemented the SVM model using the scikit-learn library in Python. The gener
 5. Evaluating the model's performance on the test set using metrics such as accuracy, precision, recall, and F1-score.
 
 By leveraging SVM's ability to handle high-dimensional data and capture complex decision boundaries, we aim to accurately predict Bitcoin price movements based on historical data and derived features.
-
 
 
 ## Results
