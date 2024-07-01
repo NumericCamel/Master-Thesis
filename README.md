@@ -297,6 +297,7 @@ The optimal hyperplane is determined by maximizing the margin between the two cl
 
 Mathematically, this can be expressed as an optimization problem:
 
+```
 minimize:
     (1/2)||w||^2
 
