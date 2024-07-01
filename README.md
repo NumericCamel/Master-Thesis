@@ -256,6 +256,90 @@ Here's an overview of the final dataset that will ultimately be fed into the mod
 </p>
 
 
+## Introduction
+
+This study employs a comparative analysis of three machine learning models to predict Bitcoin price movements:
+
+1. Random Forest Classification
+2. Support Vector Machine (SVM)
+3. Long Short-Term Memory (LSTM) Classification
+
+Our primary objective is to evaluate and compare the performance of these models in forecasting whether the Bitcoin price will increase or decrease on the following day, based on historical price data and other relevant features.
+
+### Dataset
+
+The dataset utilized in this study comprises various features derived from historical Bitcoin price data, including but not limited to:
+
+- Opening price
+- Closing price
+- Trading volume
+- Price volatility measures
+
+The dependent variable is a binary indicator (0 or 1) representing whether the Bitcoin price will rise the next day, making this a binary classification problem.
+
+### Model Overview
+
+Each model brings unique strengths to the task:
+
+1. **Random Forest Classification**: Offers robustness against overfitting and the ability to handle non-linear relationships.
+2. **Support Vector Machine**: Excels in high-dimensional spaces and is effective when the number of dimensions exceeds the number of samples.
+3. **LSTM Classification**: Particularly suited for sequential data, capturing long-term dependencies in time series.
+
+## Support Vector Machine (SVM)
+
+Support Vector Machine is a powerful supervised learning algorithm used for both classification and regression tasks. In our study, we employ SVM for binary classification to predict Bitcoin price movements.
+
+### Theoretical Foundation
+
+SVM operates on the principle of finding the optimal hyperplane that best separates the two classes in the feature space. In our case, these classes represent whether the Bitcoin price will increase (1) or not (0) the following day.
+
+The optimal hyperplane is determined by maximizing the margin between the two classes. The margin is defined as the distance between the hyperplane and the nearest data point from either class, known as support vectors.
+
+Mathematically, this can be expressed as an optimization problem:
+
+    minimize    (1/2)||w||^2
+    subject to  y_i(w^T x_i + b) ≥ 1, for i = 1, ..., n
+
+Where:
+- w is the normal vector to the hyperplane
+- x_i are the training examples
+- y_i are the class labels (-1 or 1)
+- b is the bias term
+
+### Kernel Trick
+
+One of the key strengths of SVM is its ability to handle non-linear decision boundaries through the use of kernel functions. The kernel trick allows SVM to operate in a high-dimensional feature space without explicitly computing the coordinates of the data in that space.
+
+Common kernel functions include:
+
+1. Linear: `K(x_i, x_j) = x_i^T x_j`
+2. Polynomial: `K(x_i, x_j) = (γx_i^T x_j + r)^d`
+3. Radial Basis Function (RBF): `K(x_i, x_j) = exp(-γ||x_i - x_j||^2)`
+
+In our study, we experimented with different kernel functions to determine the most effective for our Bitcoin price prediction task.
+
+### Hyperparameter Tuning
+
+To optimize the SVM model's performance, we conducted hyperparameter tuning using grid search with cross-validation. The key hyperparameters tuned include:
+
+- **C**: The regularization parameter, controlling the trade-off between achieving a low training error and a low testing error.
+- **Kernel**: The type of kernel function used (linear, polynomial, RBF).
+- **Gamma**: The kernel coefficient for RBF and polynomial kernels.
+- **Degree**: The degree of the polynomial kernel function (if used).
+
+### Implementation
+
+We implemented the SVM model using the scikit-learn library in Python. The general process followed these steps:
+
+1. Data preprocessing: Scaling features to a common range (e.g., [0, 1]) to ensure all features contribute equally to the model.
+2. Splitting the data into training and testing sets.
+3. Performing grid search with cross-validation to find optimal hyperparameters.
+4. Training the SVM model with the best hyperparameters on the entire training set.
+5. Evaluating the model's performance on the test set using metrics such as accuracy, precision, recall, and F1-score.
+
+By leveraging SVM's ability to handle high-dimensional data and capture complex decision boundaries, we aim to accurately predict Bitcoin price movements based on historical data and derived features.
+
+
 ## Results
 In this study, we evaluated the performance of three machine learning models: Random Forest Classification (RFC), Support Vector Classification (SVC), and Long Short-Term Memory (LSTM) neural networks. The Random Forest model demonstrated the highest performance, achieving an accuracy of 94%. The Support Vector Classification model followed, with an accuracy of 88%. For both the Random Forest and Support Vector Classification models, we incorporated a lag of three days to account for time series data.
 
