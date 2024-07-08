@@ -24,6 +24,10 @@ def construct_url(ticker, period_1, period_2, interval='daily'):
         return total_seconds
 
     try:
+        # Handle special tickers
+        ticker_mapping = {'Vix': '%5EVIX', 'SNP': '%5EGSPC', 'Dow': '%5EDJI'}
+        ticker = ticker_mapping.get(ticker, ticker)
+        
         interval_dic = {'daily': '1d', 'weekly': '1wk', 'monthly': '1mo'}
         _interval = interval_dic.get(interval)
         if _interval is None:  
@@ -60,9 +64,9 @@ def download_data(url, retries=5, backoff_factor=0.3):
     for i in range(retries):
         try:
             # Use pandas to read directly from the URL
-            return pd.read_csv(url, headers=headers)
+            return pd.read_csv(url, header=0)  # Changed 'headers' to 'header'
         except requests.exceptions.HTTPError as e:
-            if e.response.status_code == 429:  # Too many requests
+            if getattr(e.response, 'status_code', None) == 429:  # Too many requests
                 wait = backoff_factor * (2 ** i)
                 print(f"Too many requests. Retrying in {wait} seconds...")
                 time.sleep(wait)
@@ -74,6 +78,43 @@ def download_data(url, retries=5, backoff_factor=0.3):
             return None
     print("Failed to download data after several retries")
     return None
+
+def fill_missing_dates(df, date_column='Date'):
+    """
+    Fill in the missing dates in the DataFrame by adding rows for the missing dates
+    and using the last available values to fill them in.
+
+    Parameters:
+    ----------
+    df : pd.DataFrame
+        DataFrame containing date and price information.
+    date_column : str
+        The name of the date column in the DataFrame.
+    
+    Returns:
+    -------
+    pd.DataFrame
+        DataFrame with missing dates filled in.
+    """
+    # Ensure the date column is of datetime type
+    df[date_column] = pd.to_datetime(df[date_column])
+    
+    # Set the date column as the index
+    df.set_index(date_column, inplace=True)
+    
+    # Create a complete date range from the min to the max date in the DataFrame
+    complete_date_range = pd.date_range(start=df.index.min(), end=df.index.max(), freq='D')
+    
+    # Reindex the DataFrame to the complete date range
+    df = df.reindex(complete_date_range, method='ffill')
+    
+    # Reset the index to bring the date column back as a regular column
+    df.reset_index(inplace=True)
+    
+    # Rename the index column back to the original date column name
+    df.rename(columns={'index': date_column}, inplace=True)
+    
+    return df
 
 def get_prices(ticker="BTC-USD", start_date=None, end_date=None):
     """
@@ -105,10 +146,17 @@ def get_prices(ticker="BTC-USD", start_date=None, end_date=None):
         df = download_data(query_url)
         if df is not None:
             print(f"Data for {ticker} from {start_date} to {end_date} has been downloaded successfully")
+
+                   # Check if the ticker is one of the special tickers and fill missing dates if true
+            special_tickers = {'%5EVIX', '%5EGSPC', '%5EDJI','Vix', 'SNP', 'Dow'}
+            if ticker in special_tickers:
+                df = fill_missing_dates(df) 
             return df
     else:
         print("Failed to construct URL.")
     
+ 
+        
     return None
 
 # Example usage
