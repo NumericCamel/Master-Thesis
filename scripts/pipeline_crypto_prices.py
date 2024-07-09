@@ -25,7 +25,7 @@ def construct_url(ticker, period_1, period_2, interval='daily'):
 
     try:
         # Handle special tickers
-        ticker_mapping = {'Vix': '%5EVIX', 'SNP': '%5EGSPC', 'Dow': '%5EDJI'}
+        ticker_mapping = {'Vix': '%5EVIX', 'SNP': '%5EGSPC', 'Dow': '%5EDJI', 'Gold': 'GC=F', 'Oil':'CL=F'}
         ticker = ticker_mapping.get(ticker, ticker)
         
         interval_dic = {'daily': '1d', 'weekly': '1wk', 'monthly': '1mo'}
@@ -145,12 +145,16 @@ def get_prices(ticker="BTC-USD", start_date=None, end_date=None, interval="daily
     if query_url:
         df = download_data(query_url)
         if df is not None:
+            df['Returns'] = df['Close'].pct_change()
+            df['Date'] = pd.to_datetime(df['Date'])
             print(f"Data for {ticker} from {start_date} to {end_date} has been downloaded successfully")
 
                    # Check if the ticker is one of the special tickers and fill missing dates if true
-            special_tickers = {'%5EVIX', '%5EGSPC', '%5EDJI','Vix', 'SNP', 'Dow'}
+            special_tickers = {'%5EVIX', '%5EGSPC', '%5EDJI','Vix', 'SNP', 'Dow', 'Gold', 'GC=F', 'Oil', 'CL=F','NVDA'}
             if ticker in special_tickers:
                 df = fill_missing_dates(df) 
+
+        
             return df
     else:
         print("Failed to construct URL.")
@@ -163,7 +167,7 @@ def get_prices(ticker="BTC-USD", start_date=None, end_date=None, interval="daily
 if __name__ == "__main__":
     btc_data = get_prices("BTC-USD")
     if btc_data is not None:
-        print(btc_data.head())
+        print(btc_data.tail())
     
     # Uncomment and modify the line below to use custom parameters
     # aapl_data = get_prices("AAPL", start_date="2023-01-01", end_date="2023-12-31")

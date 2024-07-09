@@ -201,17 +201,80 @@ def pca_v2(data, n_components=2, blacklist=None, n_feat=15, show_biplot=True, sh
     
 
     # Creating a DataFrame with the principal components
-    pc_df = pd.DataFrame(data=results['PC'], columns=[f'PC{i+1}' for i in range(n_components)])
-    return pc_df
+    pc_df = pd.DataFrame(data=results['PC'], columns=[f'PC{i+1}' for i in range(n_components)], index=data.index)
+    
+    # Concatenate the blacklisted columns with the principal components
+    result_df = pd.concat([data[blacklist], pc_df], axis=1).reset_index(drop=True)
+    
+    return result_df
+
+import pandas as pd
+import numpy as np
+from sklearn.preprocessing import StandardScaler
+from sklearn.decomposition import PCA
+import matplotlib.pyplot as plt
+
+def pca_v4(data, n_components=4, date_columns=None):
+    """
+    Perform PCA on the given time series data, excluding date columns, and return the principal components
+    along with the original date columns.
+
+    Parameters:
+    data (pd.DataFrame): DataFrame containing time series data with rows as time points and columns as different indexes.
+    n_components (int): Number of principal components to calculate. Default is 4.
+    date_columns (list): List of column names that contain date information. Default is None.
+
+    Returns:
+    pd.DataFrame: DataFrame containing the principal components and original date columns.
+    """
+    if date_columns is None:
+        date_columns = []
+
+    # Identify numeric columns
+    numeric_columns = data.select_dtypes(include=[np.number]).columns.tolist()
+    
+    # Remove date columns from numeric columns if they were accidentally included
+    numeric_columns = [col for col in numeric_columns if col not in date_columns]
+
+    # Separate numeric data for PCA
+    data_to_pca = data[numeric_columns]
+
+    # Standardizing the data
+    scaler = StandardScaler()
+    scaled_data = scaler.fit_transform(data_to_pca)
+
+    # Applying PCA
+    pca = PCA(n_components=n_components)
+    pca_result = pca.fit_transform(scaled_data)
+
+    # Creating a DataFrame with the principal components
+    pc_df = pd.DataFrame(
+        data=pca_result,
+        columns=[f'PC{i+1}' for i in range(n_components)],
+        index=data.index
+    )
+    
+    # Concatenate the date columns with the principal components
+    result_df = pd.concat([data[date_columns], pc_df], axis=1)
+    
+    # Plot explained variance ratio
+    plt.figure(figsize=(10, 5))
+    plt.bar(range(1, n_components + 1), pca.explained_variance_ratio_)
+    plt.xlabel('Principal Component')
+    plt.ylabel('Explained Variance Ratio')
+    total_variance = np.sum(pca.explained_variance_ratio_) * 100
+    plt.title(f'Explained Variance Ratio by Principal Component\nTotal Variance Explained: {total_variance:.2f}%')
+    plt.show()
+
+    return result_df
 
 
 ### Creating Technical Analysis
-def technical_analysis(df, price_col='Price', volume_col='Volume', high_col='High', low_col='Low', td_only=False, date_col='Date'):
+def technical_analysis(df, price_col='Price', volume_col='Volume', high_col='High', low_col='Low', date_col='Date', only_td=False, hold_strat=False):
     # Create a copy of the input DataFrame
     ta = df.copy()
     ta = ta.sort_values(by=date_col)
     ta['return'] = ta[price_col].pct_change()
-    ta_columns = ta.columns
     
     # 10D MA
     ta['MA'] = ta[price_col].rolling(window=10).mean()
@@ -239,12 +302,15 @@ def technical_analysis(df, price_col='Price', volume_col='Volume', high_col='Hig
     ta['RSI'] = 100 - (100 / (1 + rs))
     
     def RSI_td(rsi_values):
-        if rsi_values >= 70:
-            return -1
-        elif rsi_values <= 30:
-            return 1
+        if hold_strat:
+            if rsi_values >= 70:
+                return -1
+            elif rsi_values <= 30:
+                return 1
+            else:
+                return 0
         else:
-            return 0
+            return 1 if rsi_values <= 30 else 0
     
     ta['RSI_td'] = ta.RSI.apply(RSI_td)
     
@@ -262,25 +328,24 @@ def technical_analysis(df, price_col='Price', volume_col='Volume', high_col='Hig
     
     # CCI
     ta['TP'] = (ta[high_col] + ta[low_col] + ta[price_col]) / 3
-    
-    # Calculate the 20-period Simple Moving Average of the Typical Price
     ta['SMA_TP'] = ta['TP'].rolling(window=20).mean()
     
     def calculate_md(series):
         return abs(series - series.mean()).mean()
     
     ta['MD'] = ta['TP'].rolling(window=20).apply(calculate_md)
-    
-    # Calculate the CCI
     ta['CCI'] = (ta['TP'] - ta['SMA_TP']) / (0.015 * ta['MD'])
     
     def CCI_td(CCI_values):
-        if CCI_values >= 100:
-            return -1
-        elif CCI_values <= -100:
-            return 1
+        if hold_strat:
+            if CCI_values >= 100:
+                return -1
+            elif CCI_values <= -100:
+                return 1
+            else:
+                return 0
         else:
-            return 0
+            return 1 if CCI_values <= -100 else 0
     
     ta['CCI_td'] = ta.CCI.apply(CCI_td)
     
@@ -291,12 +356,15 @@ def technical_analysis(df, price_col='Price', volume_col='Volume', high_col='Hig
     ta['Lower_BB'] = ta['20D_SMA'] - (ta['20D_STD'] * 2)
     
     def BB_td(row):
-        if row[price_col] > row['Upper_BB']:
-            return -1
-        elif row[price_col] < row['Lower_BB']:
-            return 1
+        if hold_strat:
+            if row[price_col] > row['Upper_BB']:
+                return -1
+            elif row[price_col] < row['Lower_BB']:
+                return 1
+            else:
+                return 0
         else:
-            return 0
+            return 1 if row[price_col] < row['Lower_BB'] else 0
     
     ta['BB_td'] = ta.apply(BB_td, axis=1)
     
@@ -312,6 +380,21 @@ def technical_analysis(df, price_col='Price', volume_col='Volume', high_col='Hig
     
     ta['ATR_td'] = ta.apply(ATR_td, axis=1)
     
-
+    if only_td:
+        td_columns = [col for col in ta.columns if col.endswith('_td') or col in [date_col, price_col, volume_col, high_col, low_col]]
+        ta = ta[td_columns]
+    
     return ta
+
+def thesis_dv(df):
+    df['Tomorrow'] = df.Close.shift(-1)
+    df['Difference'] = df['Tomorrow'] - df['Close']
+    df['in between'] = np.where((df['Tomorrow'] > df['Low']) & (df['Tomorrow'] < df['High']), 1, 0)
+    df['Indicator'] = np.where(
+    df['in between'] == 1, 
+    'Hold', 
+    np.where(df['Difference'] > 0, 'Buy', 'Sell')
+    )
+    df = df.drop(['in between', 'Tomorrow'], axis=1)
+    return df
 
