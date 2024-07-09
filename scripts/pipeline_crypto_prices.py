@@ -116,7 +116,7 @@ def fill_missing_dates(df, date_column='Date'):
     
     return df
 
-def get_prices(ticker="BTC-USD", start_date=None, end_date=None):
+def get_prices(ticker="BTC-USD", start_date=None, end_date=None, interval="daily"):
     """
     Main function to get Yahoo Finance data.
     
@@ -140,7 +140,7 @@ def get_prices(ticker="BTC-USD", start_date=None, end_date=None):
     if start_date is None:
         start_date = f"{date.today().year}-01-01"
     
-    query_url = construct_url(ticker, start_date, end_date)
+    query_url = construct_url(ticker, start_date, end_date, interval=interval)
     
     if query_url:
         df = download_data(query_url)
