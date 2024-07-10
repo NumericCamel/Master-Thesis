@@ -382,7 +382,7 @@ def technical_analysis(df, price_col='Price', volume_col='Volume', high_col='Hig
     ta['ATR_td'] = ta.apply(ATR_td, axis=1)
     
     if only_td:
-        td_columns = [col for col in ta.columns if col.endswith('_td') or col in [date_col, price_col, volume_col, 'Returns']]
+        td_columns = [col for col in ta.columns if col.endswith('_td') or col in [date_col, price_col, volume_col, high_col, low_col, 'Returns']]
         ta = ta[td_columns]
     
     return ta
