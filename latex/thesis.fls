@@ -103,6 +103,16 @@ INPUT c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-dist/fonts/tfm/public/cm/cmbx
 INPUT c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-dist/fonts/tfm/public/cm/cmmi10.tfm
 INPUT c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
 INPUT c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-dist/fonts/tfm/public/cm/cmex10.tfm
+INPUT ./chapters/methodology.tex
+INPUT ./chapters/methodology.tex
+INPUT ./chapters/methodology.tex
+INPUT ./chapters/methodology.tex
+INPUT chapters/methodology.tex
+INPUT ./chapters/results.tex
+INPUT ./chapters/results.tex
+INPUT ./chapters/results.tex
+INPUT ./chapters/results.tex
+INPUT chapters/results.tex
 INPUT thesis.aux
 INPUT c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk
 INPUT c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb

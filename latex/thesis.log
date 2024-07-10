@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.10.1)  9 JUL 2024 03:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.10.1)  10 JUL 2024 17:21
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -208,15 +208,15 @@ LaTeX Font Info:    ... okay on input line 18.
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: 
-* h-part:(L,W,R)=(72.26999pt, 452.9679pt, 72.26999pt)
-* v-part:(T,H,B)=(72.26999pt, 700.50687pt, 72.26999pt)
+* h-part:(L,W,R)=(36.135pt, 525.23788pt, 36.135pt)
+* v-part:(T,H,B)=(36.135pt, 772.77686pt, 36.135pt)
 * \paperwidth=597.50787pt
 * \paperheight=845.04684pt
-* \textwidth=452.9679pt
-* \textheight=700.50687pt
-* \oddsidemargin=0.0pt
-* \evensidemargin=0.0pt
-* \topmargin=-37.0pt
+* \textwidth=525.23788pt
+* \textheight=772.77686pt
+* \oddsidemargin=-36.135pt
+* \evensidemargin=-36.135pt
+* \topmargin=-73.135pt
 * \headheight=12.0pt
 * \headsep=25.0pt
 * \topskip=12.0pt
@@ -256,412 +256,310 @@ Chapter 1.
 Chapter 2.
 [3
 
+] [4]) (./chapters/data.tex [5] [6]
+Chapter 3.
+[7
+
 ]
-Overfull \hbox (2.83592pt too wide) in paragraph at lines 19--19
-[]\OT1/cmr/bx/n/17.28 Past at-tempts at pre-dict-ing the stock/crypto cur-
- []
-
-[4] [5]
-Overfull \hbox (0.10335pt too wide) in paragraph at lines 41--42
-[]\OT1/cmr/m/n/12 Similarly, news sen-ti-ment shows a no-table im-pact on Bit-coin prices. Lavinia Rognone's
- []
-
-) (./chapters/data.tex
-
-./chapters/data.tex:1: LaTeX Error: Can be used only in preamble.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.1 \documentclass
-                  {article}
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-./chapters/data.tex:2: LaTeX Error: Can be used only in preamble.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.2 \usepackage
-               {amsmath}
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-./chapters/data.tex:3: LaTeX Error: Can be used only in preamble.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.3 \usepackage
-               {booktabs}
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-./chapters/data.tex:4: LaTeX Error: Can be used only in preamble.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.4 \usepackage
-               {longtable}
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-./chapters/data.tex:6: LaTeX Error: Can be used only in preamble.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.6 \usepackage
-               {geometry}
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-./chapters/data.tex:7: LaTeX Error: Can be used only in preamble.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.7 \geometry
-             {a4paper, margin=1in}
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-./chapters/data.tex:9: LaTeX Error: Can be used only in preamble.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.9 \begin{document}
-                    
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-[6] [7]
-./chapters/data.tex:60: Extra alignment tab has been changed to \cr.
+./chapters/data.tex:52: Extra alignment tab has been changed to \cr.
 <template> ...egin \relax \d@llarend \endtemplate 
                                                   
-l.60 \textbf{Indicator} & \textbf{Formula} &
+l.52 \textbf{Indicator} & \textbf{Formula} &
                                              \textbf{Trading Signal Explanat...
 You have given more \span or & marks than there were
 in the preamble to the \halign or \valign now in progress.
 So I'll assume that you meant to type \cr instead.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 60--60
+Underfull \hbox (badness 10000) in paragraph at lines 52--52
 []|\OT1/cmr/bx/n/10.95 Trading Sig-nal
  []
 
-./chapters/data.tex:63: Extra alignment tab has been changed to \cr.
+./chapters/data.tex:55: Extra alignment tab has been changed to \cr.
 <template> ...egin \relax \d@llarend \endtemplate 
                                                   
-l.63 ...}{10} \sum_{i=0}^{9} \text{Price}_{t-i}$ &
+l.55 ...}{10} \sum_{i=0}^{9} \text{Price}_{t-i}$ &
                                                    A price above the 10D MA ...
 You have given more \span or & marks than there were
 in the preamble to the \halign or \valign now in progress.
 So I'll assume that you meant to type \cr instead.
 
 
-Underfull \hbox (badness 1931) in paragraph at lines 63--63
+Underfull \hbox (badness 1931) in paragraph at lines 55--55
 []|\OT1/cmr/m/n/10.95 A price above the
  []
 
 
-Underfull \hbox (badness 7814) in paragraph at lines 63--63
+Underfull \hbox (badness 7814) in paragraph at lines 55--55
 \OT1/cmr/m/n/10.95 10D MA sug-gests
  []
 
-./chapters/data.tex:64: Extra alignment tab has been changed to \cr.
+./chapters/data.tex:56: Extra alignment tab has been changed to \cr.
 <template> ...egin \relax \d@llarend \endtemplate 
                                                   
-l.64 ...{30} \sum_{i=0}^{29} \text{Price}_{t-i}$ &
+l.56 ...{30} \sum_{i=0}^{29} \text{Price}_{t-i}$ &
                                                    When the price is above t...
 You have given more \span or & marks than there were
 in the preamble to the \halign or \valign now in progress.
 So I'll assume that you meant to type \cr instead.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 64--64
+Underfull \hbox (badness 10000) in paragraph at lines 56--56
 []|\OT1/cmr/m/n/10.95 When the price
  []
 
 
-Underfull \hbox (badness 4429) in paragraph at lines 64--64
+Underfull \hbox (badness 4429) in paragraph at lines 56--56
 \OT1/cmr/m/n/10.95 is above the 30D
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 64--64
+Underfull \hbox (badness 10000) in paragraph at lines 56--56
 \OT1/cmr/m/n/10.95 MA, it in-di-cates
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 64--64
+Underfull \hbox (badness 10000) in paragraph at lines 56--56
 \OT1/cmr/m/n/10.95 a medium-term
  []
 
-./chapters/data.tex:65: Extra alignment tab has been changed to \cr.
+./chapters/data.tex:57: Extra alignment tab has been changed to \cr.
 <template> ...egin \relax \d@llarend \endtemplate 
                                                   
-l.65 ...4}}{\text{High}_{14} - \text{Low}_{14}}$ &
+l.57 ...4}}{\text{High}_{14} - \text{Low}_{14}}$ &
                                                    An upward \%K signal indi...
 You have given more \span or & marks than there were
 in the preamble to the \halign or \valign now in progress.
 So I'll assume that you meant to type \cr instead.
 
-./chapters/data.tex:66: Extra alignment tab has been changed to \cr.
+./chapters/data.tex:58: Extra alignment tab has been changed to \cr.
 <template> ...egin \relax \d@llarend \endtemplate 
                                                   
-l.66 ...1}{3} (\%K_{t} + \%K_{t-1} + \%K_{t-2})$ &
+l.58 ...1}{3} (\%K_{t} + \%K_{t-1} + \%K_{t-2})$ &
                                                    An upward \%D signal show...
 You have given more \span or & marks than there were
 in the preamble to the \halign or \valign now in progress.
 So I'll assume that you meant to type \cr instead.
 
 
-Underfull \hbox (badness 2951) in paragraph at lines 66--66
+Underfull \hbox (badness 2951) in paragraph at lines 58--58
 \OT1/cmr/m/n/10.95 firm-ing the bullish
  []
 
-./chapters/data.tex:67: Extra alignment tab has been changed to \cr.
+./chapters/data.tex:59: Extra alignment tab has been changed to \cr.
 <template> ...egin \relax \d@llarend \endtemplate 
                                                   
-l.67 ...xt{Average Gain}}{\text{Average Loss}}}$ &
+l.59 ...xt{Average Gain}}{\text{Average Loss}}}$ &
                                                    RSI above 70 indicates ov...
 You have given more \span or & marks than there were
 in the preamble to the \halign or \valign now in progress.
 So I'll assume that you meant to type \cr instead.
 
 
-Underfull \hbox (badness 4467) in paragraph at lines 67--67
+Underfull \hbox (badness 4467) in paragraph at lines 59--59
 []|\OT1/cmr/m/n/10.95 RSI above 70 in-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 67--67
+Underfull \hbox (badness 10000) in paragraph at lines 59--59
 \OT1/cmr/m/n/10.95 di-cates over-bought
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 67--67
+Underfull \hbox (badness 10000) in paragraph at lines 59--59
 \OT1/cmr/m/n/10.95 con-di-tions (sell
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 67--67
+Underfull \hbox (badness 10000) in paragraph at lines 59--59
 \OT1/cmr/m/n/10.95 sig-nal), be-low 30
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 67--67
+Underfull \hbox (badness 10000) in paragraph at lines 59--59
 \OT1/cmr/m/n/10.95 in-di-cates over-sold
  []
 
-./chapters/data.tex:68: Extra alignment tab has been changed to \cr.
+./chapters/data.tex:60: Extra alignment tab has been changed to \cr.
 <template> ...egin \relax \d@llarend \endtemplate 
                                                   
-l.68 ...= \text{Price}_{t} - \text{Price}_{t-n}$ &
+l.60 ...= \text{Price}_{t} - \text{Price}_{t-n}$ &
                                                    Positive momentum indicat...
 You have given more \span or & marks than there were
 in the preamble to the \halign or \valign now in progress.
 So I'll assume that you meant to type \cr instead.
 
 
-Underfull \hbox (badness 1466) in paragraph at lines 68--68
+Underfull \hbox (badness 1466) in paragraph at lines 60--60
 []|\OT1/cmr/m/n/10.95 Positive mo-men-tum
  []
 
 
-Underfull \hbox (badness 6758) in paragraph at lines 68--68
+Underfull \hbox (badness 6758) in paragraph at lines 60--60
 \OT1/cmr/m/n/10.95 in-di-cates a strong
  []
 
 [8]
-./chapters/data.tex:74: Extra alignment tab has been changed to \cr.
+./chapters/data.tex:66: Extra alignment tab has been changed to \cr.
 <template> ...egin \relax \d@llarend \endtemplate 
                                                   
-l.74 \textbf{Indicator} & \textbf{Formula} &
+l.66 \textbf{Indicator} & \textbf{Formula} &
                                              \textbf{Trading Signal Explanat...
 You have given more \span or & marks than there were
 in the preamble to the \halign or \valign now in progress.
 So I'll assume that you meant to type \cr instead.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 74--74
+Underfull \hbox (badness 10000) in paragraph at lines 66--66
 []|\OT1/cmr/bx/n/10.95 Trading Sig-nal
  []
 
-./chapters/data.tex:77: Extra alignment tab has been changed to \cr.
+./chapters/data.tex:69: Extra alignment tab has been changed to \cr.
 <template> ...egin \relax \d@llarend \endtemplate 
                                                   
-l.77 ...MACD} = \text{12D EMA} - \text{26D EMA}$ &
+l.69 ...MACD} = \text{12D EMA} - \text{26D EMA}$ &
                                                    An upward MACD signal ind...
 You have given more \span or & marks than there were
 in the preamble to the \halign or \valign now in progress.
 So I'll assume that you meant to type \cr instead.
 
 
-Underfull \hbox (badness 1242) in paragraph at lines 77--77
+Underfull \hbox (badness 1242) in paragraph at lines 69--69
 []|\OT1/cmr/m/n/10.95 An up-ward MACD
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 77--77
+Underfull \hbox (badness 10000) in paragraph at lines 69--69
 \OT1/cmr/m/n/10.95 sig-nal in-di-cates
  []
 
 
-Underfull \hbox (badness 6542) in paragraph at lines 77--77
+Underfull \hbox (badness 6542) in paragraph at lines 69--69
 \OT1/cmr/m/n/10.95 bullish mo-men-tum,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 77--77
+Underfull \hbox (badness 10000) in paragraph at lines 69--69
 \OT1/cmr/m/n/10.95 sug-gest-ing a buy
  []
 
-./chapters/data.tex:78: Extra alignment tab has been changed to \cr.
+./chapters/data.tex:70: Extra alignment tab has been changed to \cr.
 <template> ...egin \relax \d@llarend \endtemplate 
                                                   
-l.78 ...} - \text{MA}}{0.015 \times \text{MAD}}$ &
+l.70 ...} - \text{MA}}{0.015 \times \text{MAD}}$ &
                                                    CCI above 100 indicates o...
 You have given more \span or & marks than there were
 in the preamble to the \halign or \valign now in progress.
 So I'll assume that you meant to type \cr instead.
 
 
-Underfull \hbox (badness 1127) in paragraph at lines 78--78
+Underfull \hbox (badness 1127) in paragraph at lines 70--70
 []|\OT1/cmr/m/n/10.95 CCI above 100 in-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 78--78
+Underfull \hbox (badness 10000) in paragraph at lines 70--70
 \OT1/cmr/m/n/10.95 di-cates over-bought
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 78--78
+Underfull \hbox (badness 10000) in paragraph at lines 70--70
 \OT1/cmr/m/n/10.95 (sell), be-low -100
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 78--78
+Underfull \hbox (badness 10000) in paragraph at lines 70--70
 \OT1/cmr/m/n/10.95 in-di-cates over-sold
  []
 
-./chapters/data.tex:79: Extra alignment tab has been changed to \cr.
+./chapters/data.tex:71: Extra alignment tab has been changed to \cr.
 <template> ...egin \relax \d@llarend \endtemplate 
                                                   
-l.79 ...Band} = \text{MA} - 2 \times \text{STD}$ &
+l.71 ...Band} = \text{MA} - 2 \times \text{STD}$ &
                                                    A price above the upper b...
 You have given more \span or & marks than there were
 in the preamble to the \halign or \valign now in progress.
 So I'll assume that you meant to type \cr instead.
 
 
-Underfull \hbox (badness 1931) in paragraph at lines 79--79
+Underfull \hbox (badness 1931) in paragraph at lines 71--71
 []|\OT1/cmr/m/n/10.95 A price above the
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 79--79
+Underfull \hbox (badness 10000) in paragraph at lines 71--71
 \OT1/cmr/m/n/10.95 over-bought con-di-
  []
 
 
-Underfull \hbox (badness 4779) in paragraph at lines 79--79
+Underfull \hbox (badness 4779) in paragraph at lines 71--71
 \OT1/cmr/m/n/10.95 tions (sell), be-low
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 79--79
+Underfull \hbox (badness 10000) in paragraph at lines 71--71
 \OT1/cmr/m/n/10.95 the lower band
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 79--79
+Underfull \hbox (badness 10000) in paragraph at lines 71--71
 \OT1/cmr/m/n/10.95 sug-gests over-sold
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 80--80
+Underfull \hbox (badness 10000) in paragraph at lines 72--72
 []|\OT1/cmr/m/n/10.95 Fibonacci Re-trace-
  []
 
-./chapters/data.tex:80: Extra alignment tab has been changed to \cr.
+./chapters/data.tex:72: Extra alignment tab has been changed to \cr.
 <template> ...egin \relax \d@llarend \endtemplate 
                                                   
-l.80 ... 23.6\%, 38.2\%, 50\%, 61.8\%, and 100\% &
+l.72 ... 23.6\%, 38.2\%, 50\%, 61.8\%, and 100\% &
                                                    Used to identify potentia...
 You have given more \span or & marks than there were
 in the preamble to the \halign or \valign now in progress.
 So I'll assume that you meant to type \cr instead.
 
 
-Underfull \hbox (badness 4303) in paragraph at lines 81--81
+Underfull \hbox (badness 4303) in paragraph at lines 73--73
 []|$[] \OT1/cmr/m/n/10.95 = [] [][] [][]$, $[] =
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 81--81
+Underfull \hbox (badness 10000) in paragraph at lines 73--73
 []\OT1/cmr/m/n/10.95 ([] \OMS/cmsy/m/n/10.95 ^^@ []\OML/cmm/m/it/10.95 ; \OMS/cmsy/m/n/10.95 j[] ^^@
  []
 
-./chapters/data.tex:81: Extra alignment tab has been changed to \cr.
+./chapters/data.tex:73: Extra alignment tab has been changed to \cr.
 <template> ...egin \relax \d@llarend \endtemplate 
                                                   
-l.81 ...}|, |\text{Low} - \text{Close}_{prev}|)$ &
+l.73 ...}|, |\text{Low} - \text{Close}_{prev}|)$ &
                                                    Higher ATR values indicat...
 You have given more \span or & marks than there were
 in the preamble to the \halign or \valign now in progress.
 So I'll assume that you meant to type \cr instead.
 
 
-Underfull \hbox (badness 1087) in paragraph at lines 81--82
+Underfull \hbox (badness 1087) in paragraph at lines 73--74
 []|\OT1/cmr/m/n/10.95 Higher ATR val-ues
  []
 
-[9] [10] (./thesis.aux)
+[9]) (./chapters/methodology.tex) (./chapters/results.tex) [10] (./thesis.aux)
  ***********
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2023-08-29>
  ***********
- ) )
-(\end occurred inside a group at level 1)
-
-### semi simple group (level 1) entered at line 9 (\begingroup)
-### bottom level 
+ ) 
 Here is how much of TeX's memory you used:
- 2568 strings out of 476888
- 40518 string characters out of 5807195
+ 2584 strings out of 476888
+ 40932 string characters out of 5807195
  1933785 words of memory out of 5000000
- 23854 multiletter control sequences out of 15000+600000
+ 23864 multiletter control sequences out of 15000+600000
  566753 words of font info for 66 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 57i,11n,65p,1325b,283s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 57i,11n,65p,1325b,210s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk><c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on thesis.pdf (11 pages, 176670 bytes).
+Output written on thesis.pdf (11 pages, 176242 bytes).
 PDF statistics:
  105 PDF objects out of 1000 (max. 8388607)
  66 compressed objects within 1 object stream

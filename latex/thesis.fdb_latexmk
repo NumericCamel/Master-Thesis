@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1720490044 "p:/6. DSMA/99. Thesis/Github/thesis/latex/thesis.tex" "thesis.pdf" "thesis" 1720490045 2
+["pdflatex"] 1720624886 "p:/6. DSMA/99. Thesis/Github/thesis/latex/thesis.tex" "thesis.pdf" "thesis" 1720624887 2
   "c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-dist/fonts/tfm/jknappen/ec/tcrm1200.tfm" 1696114214 1536 74b7293ec3713bb7fdca8dd1bd1f469c ""
   "c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1696114214 1004 54797486969f23fa377b128694d548df ""
   "c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1696114214 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -58,13 +58,15 @@
   "c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk" 1710605669 14040 1243a4d332794212d383787078c0e70e ""
   "c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-var/web2c/pdftex/pdflatex.fmt" 1696116530 6774865 d74c1f6a59f9bf13c949037268fae584 ""
   "c:/Users/mulle/AppData/Roaming/TinyTeX/texmf.cnf" 1696114225 956 bc725f1dae0ef3080944f5011089c94a ""
-  "chapters/data.tex" 1720490039 6708 625394074a09c2c2fcf4851fd5a792d0 ""
+  "chapters/data.tex" 1720490064 6539 dd733ce3f89652c1e0a7d78a2430f7ed ""
   "chapters/introduction.tex" 1720488801 22 5d62e65bafe1b4ec405376d6c8131047 ""
   "chapters/literature_review.tex" 1720489031 13425 5500d5152d00f7cb07f26eca69390842 ""
-  "p:/6. DSMA/99. Thesis/Github/thesis/latex/thesis.tex" 1720490043 673 400adff2bd73ec81c63e0f589297bc78 ""
-  "thesis.aux" 1720490045 2385 31bece42113b9ec768382f9b496d7196 "pdflatex"
-  "thesis.tex" 1720490043 673 400adff2bd73ec81c63e0f589297bc78 ""
-  "thesis.toc" 1720490045 1165 6b5edd65e840aa963fbc19fd613d4cd6 "pdflatex"
+  "chapters/methodology.tex" 1720488039 0 d41d8cd98f00b204e9800998ecf8427e ""
+  "chapters/results.tex" 1720488044 0 d41d8cd98f00b204e9800998ecf8427e ""
+  "p:/6. DSMA/99. Thesis/Github/thesis/latex/thesis.tex" 1720624885 675 d698a3f1701ee70b7a02086109178b58 ""
+  "thesis.aux" 1720624887 2553 49534b2c37fd940cf0204faa36b0e25a "pdflatex"
+  "thesis.tex" 1720624885 675 d698a3f1701ee70b7a02086109178b58 ""
+  "thesis.toc" 1720624887 1216 a666c48512a8944935e41bb1d5dd3c8e "pdflatex"
   (generated)
   "thesis.aux"
   "thesis.log"

@@ -274,7 +274,8 @@ def technical_analysis(df, price_col='Price', volume_col='Volume', high_col='Hig
     # Create a copy of the input DataFrame
     ta = df.copy()
     ta = ta.sort_values(by=date_col)
-    ta['return'] = ta[price_col].pct_change()
+    ta['Return'] = ta[price_col].pct_change()
+    ta.Volume = ta.Volume.pct_change()
     
     # 10D MA
     ta['MA'] = ta[price_col].rolling(window=10).mean()
@@ -381,20 +382,157 @@ def technical_analysis(df, price_col='Price', volume_col='Volume', high_col='Hig
     ta['ATR_td'] = ta.apply(ATR_td, axis=1)
     
     if only_td:
-        td_columns = [col for col in ta.columns if col.endswith('_td') or col in [date_col, price_col, volume_col, high_col, low_col]]
+        td_columns = [col for col in ta.columns if col.endswith('_td') or col in [date_col, price_col, volume_col, 'Returns']]
         ta = ta[td_columns]
     
     return ta
 
-def thesis_dv(df):
-    df['Tomorrow'] = df.Close.shift(-1)
-    df['Difference'] = df['Tomorrow'] - df['Close']
-    df['in between'] = np.where((df['Tomorrow'] > df['Low']) & (df['Tomorrow'] < df['High']), 1, 0)
-    df['Indicator'] = np.where(
-    df['in between'] == 1, 
-    'Hold', 
-    np.where(df['Difference'] > 0, 'Buy', 'Sell')
-    )
-    df = df.drop(['in between', 'Tomorrow'], axis=1)
+def thesis_dv(df, hold_strat=True):
+    if hold_strat:
+        df['Tomorrow'] = df.Close.shift(-1)
+        df['Difference'] = df['Tomorrow'] - df['Close']
+        df['in between'] = np.where((df['Tomorrow'] > df['Low']) & (df['Tomorrow'] < df['High']), 1, 0)
+        df['Indicator'] = np.where(
+        df['in between'] == 1, 
+        'Hold', 
+        np.where(df['Difference'] > 0, 'Buy', 'Sell')
+        )
+        df = df.drop(['in between', 'Tomorrow','Difference'], axis=1)
+    else:
+        df['Tomorrow'] = df.Close.shift(-1)
+        df['Indicator'] = np.where(df.Tomorrow > df.Close, 'Buy', 'Sell')
+        df = df.drop(['Tomorrow'], axis=1)
+
     return df
 
+
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+from sklearn.linear_model import Ridge
+from sklearn.metrics import mean_squared_error
+import matplotlib.pyplot as plt
+
+def ridge_regression_analysis(df, target_column, alpha_range=None):
+    """
+    Perform Ridge regression analysis on the given dataset.
+    
+    :param df: pandas DataFrame containing the dataset
+    :param target_column: name of the target variable column
+    :param output_dir: directory to save output plots (default: current directory)
+    :param alpha_range: tuple of (min, max, num) for np.logspace (default: (-6, 6, 100))
+    :return: dictionary containing results
+    """
+    # Prepare the data
+    X = df.drop(target_column, axis=1)
+    y = df[target_column]
+
+    # Convert target to binary values if it's categorical
+    if y.dtype == 'object':
+        y = (y == y.unique()[0]).astype(int)
+
+    # Split the data
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+    # Scale the features
+    scaler = StandardScaler()
+    X_train_scaled = scaler.fit_transform(X_train)
+    X_test_scaled = scaler.transform(X_test)
+
+    # Define alpha range
+    if alpha_range is None:
+        alpha_range = (-6, 6, 100)
+    alphas = np.logspace(*alpha_range)
+
+    # Perform Ridge regression for each alpha
+    coefs = []
+    mses = []
+    for alpha in alphas:
+        ridge = Ridge(alpha=alpha)
+        ridge.fit(X_train_scaled, y_train)
+        coefs.append(ridge.coef_)
+        y_pred = ridge.predict(X_test_scaled)
+        mse = mean_squared_error(y_test, y_pred)
+        mses.append(mse)
+
+    coefs = np.array(coefs)
+
+    # Plot the coefficients paths
+    plt.figure(figsize=(12, 6))
+    for i in range(X.shape[1]):
+        plt.semilogx(alphas, coefs[:, i], label=X.columns[i])
+    plt.xlabel('Alpha')
+    plt.ylabel('Coefficients')
+    plt.title('Ridge Regression Coefficients')
+    plt.legend(loc='upper left', bbox_to_anchor=(1, 1))
+    plt.tight_layout()
+    plt.close()
+
+    # Plot the MSE
+    plt.figure(figsize=(10, 6))
+    plt.semilogx(alphas, mses)
+    plt.xlabel('Alpha')
+    plt.ylabel('Mean Squared Error')
+    plt.title('Ridge Regression: MSE vs Alpha')
+    plt.close()
+
+    # Find the best alpha
+    best_alpha = alphas[np.argmin(mses)]
+
+    # Fit the model with the best alpha
+    best_ridge = Ridge(alpha=best_alpha)
+    best_ridge.fit(X_train_scaled, y_train)
+
+    # Identify "dropped" variables (those with very small coefficients)
+    threshold = 1e-4  # You can adjust this threshold
+    dropped_vars = X.columns[np.abs(best_ridge.coef_) < threshold].tolist()
+
+    # Prepare results
+    results = {
+        'best_alpha': best_alpha,
+        'coefficients': dict(zip(X.columns, best_ridge.coef_)),
+        'dropped_variables': dropped_vars,
+        'mse': min(mses)
+    }
+
+    return results
+
+def thesis_lag(df, num_lags = 4, target_column = 'Indicator'):
+    variables = [var for var in df.columns if var != target_column]  # Adjust this if you only want to create lags for specific variables
+
+    df_1 = df.copy()
+    
+    new_columns = { }
+
+    for var in variables: # value set to twelce as indepdent variable is the last column out of a total 13
+        for lag in range(1, num_lags+1):
+            new_columns[f'{var}_lag{lag}'] = df_1[var].shift(lag)
+    
+    df_1 = pd.concat([df_1, pd.DataFrame(new_columns)], axis=1)
+
+    # Optional: Remove rows with NaN values that result from shifting
+    df_1.dropna(inplace=True)
+
+    # Replace inf and -inf with NaN
+    df_1.replace([np.inf, -np.inf], 0, inplace=True)
+    df_1.dropna(inplace=True)
+    return df_1
+
+# Custom F1 score metric
+from keras import backend as K
+
+def f1_score(y_true, y_pred):
+    def recall(y_true, y_pred):
+        true_positives = K.sum(K.round(K.clip(y_true * y_pred, 0, 1)))
+        possible_positives = K.sum(K.round(K.clip(y_true, 0, 1)))
+        recall = true_positives / (possible_positives + K.epsilon())
+        return recall
+
+    def precision(y_true, y_pred):
+        true_positives = K.sum(K.round(K.clip(y_true * y_pred, 0, 1)))
+        predicted_positives = K.sum(K.round(K.clip(y_pred, 0, 1)))
+        precision = true_positives / (predicted_positives + K.epsilon())
+        return precision
+
+    precision_val = precision(y_true, y_pred)
+    recall_val = recall(y_true, y_pred)
+    return 2 * ((precision_val * recall_val) / (precision_val + recall_val + K.epsilon()))

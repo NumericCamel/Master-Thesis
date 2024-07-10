@@ -116,7 +116,7 @@ def fill_missing_dates(df, date_column='Date'):
     
     return df
 
-def get_prices(ticker="BTC-USD", start_date=None, end_date=None, interval="daily"):
+def get_prices(ticker="BTC-USD", start_date=None, end_date=None, interval="daily", percent_change=False, index=False):
     """
     Main function to get Yahoo Finance data.
     
@@ -141,18 +141,30 @@ def get_prices(ticker="BTC-USD", start_date=None, end_date=None, interval="daily
         start_date = f"{date.today().year}-01-01"
     
     query_url = construct_url(ticker, start_date, end_date, interval=interval)
+                       # Check if the ticker is one of the special tickers and fill missing dates if true
+
     
     if query_url:
         df = download_data(query_url)
         if df is not None:
-            df['Returns'] = df['Close'].pct_change()
             df['Date'] = pd.to_datetime(df['Date'])
-            print(f"Data for {ticker} from {start_date} to {end_date} has been downloaded successfully")
 
-                   # Check if the ticker is one of the special tickers and fill missing dates if true
             special_tickers = {'%5EVIX', '%5EGSPC', '%5EDJI','Vix', 'SNP', 'Dow', 'Gold', 'GC=F', 'Oil', 'CL=F','NVDA'}
             if ticker in special_tickers:
                 df = fill_missing_dates(df) 
+
+            df['Returns'] = df['Close'].pct_change()
+
+            if percent_change:
+                df = df.apply(lambda x: x.pct_change() if x.name not in ['Date','Returns'] else x)
+            
+            if index:
+                df = df[['Date', 'Returns', 'Volume']].rename(columns={'Returns': f'{ticker}_Returns', 'Volume': f'{ticker}_Volume'})
+
+
+            print(f"Data for {ticker} from {start_date} to {end_date} has been downloaded successfully")
+
+
 
         
             return df
