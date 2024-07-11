@@ -1,4 +1,6 @@
 \documentclass[12pt]{report}
+\setlength{\parindent}{0pt} % Remove indentation
+\setlength{\parskip}{1em}   % Add space between paragraphs
 \usepackage{amsmath}
 \usepackage{booktabs}
 \usepackage{longtable}
@@ -8,7 +10,11 @@
 \usepackage{longtable}
 \usepackage{geometry}
 \usepackage{lscape}
+\usepackage{graphicx}
+\graphicspath{{img/}}
 \usepackage{tabularx}
+
+
 \geometry{a4paper, margin=0.5in}
 
 \title{Predicting BTC, ETH, and SOl Prices using a multivariate data set: A Machoine Learning Approach}
@@ -24,7 +30,6 @@
 
 \input{chapters/introduction}
 \input{chapters/literature_review}
-\input{chapters/data}
 \input{chapters/methodology}
 \input{chapters/results}
 
