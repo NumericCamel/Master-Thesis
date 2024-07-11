@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.10.1)  11 JUL 2024 15:57
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.10.1)  11 JUL 2024 22:12
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -320,28 +320,22 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 \tf@toc=\write3
 \openout3 = `thesis.toc'.
 
- (./chapters/introduction.tex [2]
-Chapter 1.
-) (./chapters/literature_review.tex [3
+ (./chapters/introduction.tex [2]) (./chapters/literature_review.tex [3
 
-]
-Chapter 2.
-[4
+] [4
 
 ] [5]
-Overfull \hbox (1.33536pt too wide) in paragraph at lines 34--35
+Overfull \hbox (1.33536pt too wide) in paragraph at lines 37--38
 \OT1/cmr/m/n/12 these data points and Bit-coin prices. This re-search sug-gests that in-creased on-line searches and Wikipedia
  []
 
-) (./chapters/methodology.tex [6] [7]
-Chapter 3.
-[8
+) (./chapters/methodology.tex [6] [7] [8
 
 ] [9] [10] [11] [12]
 <img/lstm.jpg, id=59, 869.49844pt x 773.89125pt>
 File: img/lstm.jpg Graphic file (type jpg)
 <use img/lstm.jpg>
-Package pdftex.def Info: img/lstm.jpg  used on input line 253.
+Package pdftex.def Info: img/lstm.jpg  used on input line 255.
 (pdftex.def)             Requested size: 455.24408pt x 405.18898pt.
 
 
@@ -354,15 +348,15 @@ L3 programming layer <2023-08-29>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 2805 strings out of 476888
- 44788 string characters out of 5807195
- 1943785 words of memory out of 5000000
- 24075 multiletter control sequences out of 15000+600000
+ 2804 strings out of 476888
+ 44776 string characters out of 5807195
+ 1942785 words of memory out of 5000000
+ 24074 multiletter control sequences out of 15000+600000
  567715 words of font info for 69 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  57i,18n,65p,1325b,242s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1095.600pk> <c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk><c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb><c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on thesis.pdf (15 pages, 359646 bytes).
+Output written on thesis.pdf (15 pages, 359614 bytes).
 PDF statistics:
  129 PDF objects out of 1000 (max. 8388607)
  82 compressed objects within 1 object stream
