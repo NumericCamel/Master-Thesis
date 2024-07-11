@@ -68,6 +68,68 @@ The final step in the data collection process involves merging all the collected
 \section{Feature Engineering}
 
 \subsection{Technical Indicators:} Calculation of moving averages, RSI, MACD, Bollinger Bands, etc., using historical price and volume data.
+
+
+\small
+\begin{tabular}{|>{\raggedright\arraybackslash}m{2cm}|>{\raggedright\arraybackslash}m{10cm}|>{\raggedright\arraybackslash}m{5cm}|}
+\hline
+\textbf{Indicator} & \textbf{Formula} & \textbf{Trend Det. (1/0)} \\
+\hline
+10D MA & $MA = \frac{1}{10} \sum_{i=0}^{9} P_{t-i}$ & $1 \text{ if } P_t > MA, 0 \text{ else}$ \\
+\hline
+30D MA & $3MA = \frac{1}{30} \sum_{i=0}^{29} P_{t-i}$ & $1 \text{ if } P_t > 3MA, 0 \text{ else}$ \\
+\hline
+\%K & $\frac{P_t - LL}{HH - LL} \times 100$, $LL = \min(P_{t-9}, \ldots, P_t)$, $HH = \max(P_{t-9}, \ldots, P_t)$ & $1 \text{ if } \%K_t > \%K_{t-1}, 0 \text{ else}$ \\
+\hline
+\%D & $\frac{1}{3} \sum_{i=0}^{2} \%K_{t-i}$ & $1 \text{ if } \%D_t > \%D_{t-1}, 0 \text{ else}$ \\
+\hline
+RSI & $\Delta P_t = P_t - P_{t-1}$ \newline
+$U_t = \frac{1}{14} \sum_{i=0}^{13} \max(\Delta P_{t-i}, 0)$ \newline
+$D_t = \frac{1}{14} \sum_{i=0}^{13} \max(-\Delta P_{t-i}, 0)$ \newline
+$RS = \frac{U_t}{D_t}$, $RSI = 100 - \frac{100}{1 + RS}$ & $\begin{cases}
+-1 & RSI \geq 70 \text{ \& hold} \\
+1 & RSI \leq 30 \\
+0 & \text{else}
+\end{cases}$ \newline
+or \newline
+$1 \text{ if } RSI \leq 30, 0 \text{ else}$ \\
+\hline
+Momentum & $P_t - P_{t-10}$ & $1 \text{ if } Mom > 1, 0 \text{ else}$ \\
+\hline
+MACD & $EMA_{12} = P_t \cdot \frac{2}{13} + EMA_{12,t-1} \cdot \frac{11}{13}$ \newline
+$EMA_{26} = P_t \cdot \frac{2}{27} + EMA_{26,t-1} \cdot \frac{25}{27}$ \newline
+$MACD = EMA_{12} - EMA_{26}$ \newline
+$Signal = MACD_t \cdot \frac{2}{10} + Signal_{t-1} \cdot \frac{8}{10}$ & $1 \text{ if } MACD > MACD_{t-1}, 0 \text{ else}$ \\
+\hline
+CCI & $TP = \frac{H_t + L_t + P_t}{3}$ \newline
+$SMA_{TP} = \frac{1}{20} \sum_{i=0}^{19} TP_{t-i}$ \newline
+$MD = \frac{1}{20} \sum_{i=0}^{19} |TP_{t-i} - SMA_{TP}|$ \newline
+$CCI = \frac{TP - SMA_{TP}}{0.015 \cdot MD}$ & $\begin{cases}
+-1 & CCI \geq 100 \text{ \& hold} \\
+1 & CCI \leq -100 \\
+0 & \text{else}
+\end{cases}$ \newline
+or \newline
+$1 \text{ if } CCI \leq -100, 0 \text{ else}$ \\
+\hline
+Bollinger & $SMA_{20} = \frac{1}{20} \sum_{i=0}^{19} P_{t-i}$ \newline
+$STD_{20} = \sqrt{\frac{1}{20} \sum_{i=0}^{19} (P_{t-i} - SMA_{20})^2}$ \newline
+$UB = SMA_{20} + 2 \cdot STD_{20}$ \newline
+$LB = SMA_{20} - 2 \cdot STD_{20}$ & $\begin{cases}
+-1 & P_t > UB \text{ \& hold} \\
+1 & P_t < LB \\
+0 & \text{else}
+\end{cases}$ \newline
+or \newline
+$1 \text{ if } P_t < LB, 0 \text{ else}$ \\
+\hline
+ATR & $TR = \max(H_t, C_{t-1}) - \min(L_t, C_{t-1})$ \newline
+$ATR = \frac{1}{14} \sum_{i=0}^{13} TR_{t-i}$ & $1 \text{ if } TR > ATR, 0 \text{ else}$ \\
+\hline
+\end{tabular}
+
+
+
 \subsection{Reddit Sentiment Analysis:} Top 100 posts from Reddit communities for Bitcoin, Ethereum, and Solana. Sentiment analysis using VADER lexicon to derive bullish or bearish sentiment scores.
 \subsection{Additional Features:} Inclusion of market indices data (S\&P 500, NVIDIA) as predictors.
 
@@ -108,35 +170,88 @@ Key parameters include:
 
 Gradient Boosting Classification is a sequential ensemble technique that builds models in a stage-wise manner. It optimizes for a loss function by adding weak learners to the model, typically decision trees.
 
-The prediction function is of the form:
-\[
-F_m(\mathbf{x}) = F_{m-1}(\mathbf{x}) + \eta h_m(\mathbf{x})
-\]
-where $F_m$ is the prediction at stage $m$, $\eta$ is the learning rate, and $h_m$ is the weak learner added at stage $m$.
+The Prediction function for Gradient Boosting is:
+
+\[ \hat{y} = F_M(x) = F_0(x) + \eta \sum_{m=1}^M h_m(x) \]
+
+Where:
+\begin{itemize}
+\item \( \hat{y} \) is the predicted value.
+\item \( F_0(x) \) is the initial prediction.
+\item \( M \) is the total number of iterations (trees).
+\item \( \eta \) is the learning rate.
+\item  \( h_m(x) \) is the prediction from the \( m \)-th weak learner (tree).
+\end{itemize}
 
 Key parameters include:
 \begin{itemize}
-    \item Learning rate ($\eta$)
-    \item Number of estimators
-    \item Maximum depth of each estimator
+    \item Learning rate ($\eta$): The learning rate is a hyperparameter that controls the contribution of each weak learner (base model) to the final ensemble model. It scales the output of each weak learner before adding it to the accumulated model.
+    \item Number of estimators: This parameter specifies the number of weak learners (usually decision trees) to be included in the ensemble. It defines how many iterations the boosting process will run.
+    \item Maximum depth of each estimator: This parameter sets the maximum depth of the individual decision trees. It controls the complexity of the trees.
 \end{itemize}
 
 \subsection{Long Short-Term Memory (LSTM)}
 
-Neural networks often seem like black boxes: inputs go in, outputs come out, and decisions rely on current inputs. However, neural networks do have memory in their learned weights, 
-which reflect training data, though this memory is static. Some scenarios, like stock market analysis, require remembering inputs over time for better decisions.
+Long Short-Term Memory (LSTM) networks are a type of recurrent neural network (RNN) capable of learning order dependence in sequence prediction problems. This subsection provides a detailed methodology of LSTM networks, explaining their working with equations and their application in the context of cryptocurrency analysis.
 
-To handle time series data, neural networks can be connected to process each time step individually, feeding data within a context window to capture the necessary information. 
-Periodic patterns, like predicting annual Christmas tree sales, need either a large context window or a memory system that retains valuable data and discards the irrelevant.
+\subsubsection{LSTM Network Architecture}
+An LSTM network consists of a series of LSTM cells, each containing three main components: a cell state, and three gates (input gate, forget gate, and output gate).
 
-Recurrent neural networks (RNNs) theoretically address this but suffer from vanishing and exploding gradients, making them impractical. 
-Long Short-Term Memory (LSTM) networks solve this by introducing a memory unit called the cell, effectively managing temporal data. 
-This diagram shows an LSTM building block.
+\paragraph{Cell State}
+The cell state \(C_t\) acts as a memory that carries information across the sequence steps, enabling the network to maintain long-term dependencies.
+
+\paragraph{Gates}
+The gates regulate the flow of information into and out of the cell state. They are defined as follows:
+
+\begin{itemize}
+    \item \textbf{Forget Gate} (\(f_t\)): Decides what information to discard from the cell state.
+    \item \textbf{Input Gate} (\(i_t\)): Decides which new information to add to the cell state.
+    \item \textbf{Output Gate} (\(o_t\)): Decides what information to output based on the cell state.
+\end{itemize}
+
+\subsubsection{Equations of LSTM}
+The mathematical formulation of the LSTM gates and cell state updates are given by the following equations:
+
+\paragraph{Forget Gate}
+\[
+f_t = \sigma(W_f \cdot [h_{t-1}, x_t] + b_f)
+\]
+
+\paragraph{Input Gate}
+\[
+i_t = \sigma(W_i \cdot [h_{t-1}, x_t] + b_i)
+\]
+\[
+\tilde{C}_t = \tanh(W_C \cdot [h_{t-1}, x_t] + b_C)
+\]
+
+\paragraph{Cell State Update}
+\[
+C_t = f_t * C_{t-1} + i_t * \tilde{C}_t
+\]
+
+\paragraph{Output Gate}
+\[
+o_t = \sigma(W_o \cdot [h_{t-1}, x_t] + b_o)
+\]
+\[
+h_t = o_t * \tanh(C_t)
+\]
+
+Where:
+\begin{itemize}
+    \item \(x_t\) is the input at time step \(t\),
+    \item \(h_{t-1}\) is the hidden state from the previous time step,
+    \item \(\sigma\) is the sigmoid activation function,
+    \item \(W_f, W_i, W_C, W_o\) are the weight matrices,
+    \item \(b_f, b_i, b_C, b_o\) are the bias vectors.
+\end{itemize}
+
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=\textwidth]{lstm.png}
-    \caption{Caption for the image}
+    \includegraphics[width=160mm]{lstm.jpg}
+    \caption{LSTM Diagram}
     \label{fig:example-image}
 \end{figure}
 
