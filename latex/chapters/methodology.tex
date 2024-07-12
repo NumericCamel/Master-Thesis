@@ -133,6 +133,25 @@ $ATR = \frac{1}{14} \sum_{i=0}^{13} TR_{t-i}$ & $1 \text{ if } TR > ATR, 0 \text
 
 
 \subsection{Reddit Sentiment Analysis:} Top 100 posts from Reddit communities for Bitcoin, Ethereum, and Solana. Sentiment analysis using VADER lexicon to derive bullish or bearish sentiment scores.
+
+\subsubsection{Text Preprocessing}
+The process began with the collection of Reddit posts, including both the titles and the text of each post. To ensure a comprehensive sentiment analysis, the titles and texts were combined into a single column for each post. The combined text was then preprocessed using the Natural Language Toolkit (nltk) in Python. This preprocessing involved several steps to clean the text and prepare it for analysis. First, the text was converted to lowercase to ensure uniformity. Punctuation and special characters were removed, and the text was tokenized into individual words. Common stop words such as "the," "and," and "is" were removed to reduce noise. Finally, lemmatization was performed to convert words to their base forms, such as converting "running" to "run." This preprocessing step ensured that the text was clean and ready for sentiment analysis.
+
+\subsubsection{Sentiment Analysis with VADER}
+For sentiment analysis, we utilized VADER (Valence Aware Dictionary and sEntiment Reasoner), a lexicon and rule-based tool specifically designed to handle sentiments expressed in social media contexts. VADER employs a lexicon-based approach, where each word in its predefined list has an associated sentiment score indicating whether it is positive, negative, or neutral. Additionally, VADER applies rules and heuristics to handle punctuation, capitalization, degree modifiers, and conjunctions. For example, exclamation marks increase the intensity of the sentiment, uppercase words indicate stronger sentiment, and words like "very" or "kind of" modify the intensity of the sentiment.
+
+The combined title and text of each Reddit post were passed through VADER for sentiment analysis. VADER first split the text into individual sentences, then matched each word in the sentences against its lexicon to retrieve sentiment scores. The sentiment scores of words in a sentence were aggregated, with adjustments made for the rules and heuristics VADER applies. The sentence-level sentiments were then combined to produce the final sentiment scores for the entire post.
+
+VADER provided four key sentiment scores for each post: positive, neutral, negative, and compound. The positive score represented the proportion of positive words in the text, the neutral score represented the proportion of neutral words, and the negative score represented the proportion of negative words. The compound score, a normalized measure that sums the overall sentiment of the text, ranged from -1 (extremely negative) to +1 (extremely positive). This comprehensive approach allowed us to capture the nuanced sentiment expressed in Reddit posts effectively.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=190mm]{sentimentanalysis.png}
+    \caption{Diagram showing Each Subreddits Sentiment}
+    \label{fig:example-image}
+\end{figure}
+
+
 \subsection{Additional Features:} Inclusion of market indices data (S\&P 500, NVIDIA) as predictors.
 
 

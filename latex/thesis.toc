@@ -16,19 +16,23 @@
 \contentsline {section}{\numberline {3.7}Feature Engineering}{10}{}%
 \contentsline {subsection}{\numberline {3.7.1}Technical Indicators:}{10}{}%
 \contentsline {subsection}{\numberline {3.7.2}Reddit Sentiment Analysis:}{10}{}%
-\contentsline {subsection}{\numberline {3.7.3}Additional Features:}{10}{}%
+\contentsline {subsubsection}{Text Preprocessing}{10}{}%
+\contentsline {subsubsection}{Sentiment Analysis with VADER}{11}{}%
+\contentsline {subsection}{\numberline {3.7.3}Additional Features:}{11}{}%
 \contentsline {section}{\numberline {3.8}Machine Learning Models}{11}{}%
 \contentsline {subsection}{\numberline {3.8.1}Random Forest}{11}{}%
-\contentsline {subsection}{\numberline {3.8.2}Support Vector Classification (SVC)}{11}{}%
-\contentsline {subsection}{\numberline {3.8.3}Gradient Boosting Classification}{11}{}%
-\contentsline {subsection}{\numberline {3.8.4}Long Short-Term Memory (LSTM)}{12}{}%
-\contentsline {subsubsection}{LSTM Network Architecture}{12}{}%
-\contentsline {paragraph}{Cell State}{12}{}%
-\contentsline {paragraph}{Gates}{12}{}%
-\contentsline {subsubsection}{Equations of LSTM}{12}{}%
-\contentsline {paragraph}{Forget Gate}{12}{}%
+\contentsline {subsection}{\numberline {3.8.2}Support Vector Classification (SVC)}{12}{}%
+\contentsline {subsection}{\numberline {3.8.3}Gradient Boosting Classification}{12}{}%
+\contentsline {subsection}{\numberline {3.8.4}Long Short-Term Memory (LSTM)}{13}{}%
+\contentsline {subsubsection}{LSTM Network Architecture}{13}{}%
+\contentsline {paragraph}{Cell State}{13}{}%
+\contentsline {paragraph}{Gates}{13}{}%
+\contentsline {subsubsection}{Equations of LSTM}{13}{}%
+\contentsline {paragraph}{Forget Gate}{13}{}%
 \contentsline {paragraph}{Input Gate}{13}{}%
 \contentsline {paragraph}{Cell State Update}{13}{}%
-\contentsline {paragraph}{Output Gate}{13}{}%
-\contentsline {subsection}{\numberline {3.8.5}Hidden Markov Model (HMM)}{13}{}%
-\contentsline {section}{\numberline {3.9}Model Evaluation}{14}{}%
+\contentsline {paragraph}{Output Gate}{14}{}%
+\contentsline {subsection}{\numberline {3.8.5}Hidden Markov Model (HMM)}{14}{}%
+\contentsline {section}{\numberline {3.9}Model Evaluation}{15}{}%
+\contentsline {chapter}{Results}{16}{}%
+\contentsline {section}{\numberline {4.10}Random Forest Classifier}{16}{}%

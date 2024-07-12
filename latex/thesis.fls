@@ -113,6 +113,10 @@ INPUT c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-dist/fonts/tfm/public/cm/cmmi
 INPUT c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
 INPUT c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-dist/fonts/tfm/public/cm/cmex10.tfm
 INPUT c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
+INPUT ./img/sentimentanalysis.png
+INPUT ./img/sentimentanalysis.png
+INPUT ./img/sentimentanalysis.png
+INPUT ./img/sentimentanalysis.png
 INPUT c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-dist/fonts/tfm/public/cm/cmbx8.tfm
 INPUT c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-dist/fonts/tfm/public/cm/cmbx6.tfm
 INPUT c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-dist/fonts/tfm/jknappen/ec/tcrm1095.tfm
@@ -125,6 +129,10 @@ INPUT ./chapters/results.tex
 INPUT ./chapters/results.tex
 INPUT ./chapters/results.tex
 INPUT chapters/results.tex
+INPUT ./img/RandomForest_ROC.png
+INPUT ./img/RandomForest_ROC.png
+INPUT ./img/RandomForest_ROC.png
+INPUT ./img/RandomForest_ROC.png
 INPUT thesis.aux
 INPUT c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1095.600pk
 INPUT c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk

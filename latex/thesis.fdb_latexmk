@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1720734628 "p:/6. DSMA/99. Thesis/Github/thesis/latex/thesis.tex" "thesis.pdf" "thesis" 1720734628 0
+["pdflatex"] 1720803623 "p:/6. DSMA/99. Thesis/Github/thesis/latex/thesis.tex" "thesis.pdf" "thesis" 1720803625 0
   "c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-dist/fonts/tfm/jknappen/ec/tcrm1095.tfm" 1696114214 1536 02c06700a42be0f5a28664c7273f82e7 ""
   "c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-dist/fonts/tfm/jknappen/ec/tcrm1200.tfm" 1696114214 1536 74b7293ec3713bb7fdca8dd1bd1f469c ""
   "c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1696114214 1004 54797486969f23fa377b128694d548df ""
@@ -67,13 +67,15 @@
   "c:/Users/mulle/AppData/Roaming/TinyTeX/texmf.cnf" 1696114225 956 bc725f1dae0ef3080944f5011089c94a ""
   "chapters/introduction.tex" 1720728685 1820 0fa8c55cfa506d551f5aa108a4632ab2 ""
   "chapters/literature_review.tex" 1720734627 14747 2e30ba0ca5de97a22acb5802c074899f ""
-  "chapters/methodology.tex" 1720728729 14196 15fe1a05bb6cbf5cd64b8b435e0e9a90 ""
-  "chapters/results.tex" 1720488044 0 d41d8cd98f00b204e9800998ecf8427e ""
+  "chapters/methodology.tex" 1720802041 17079 308d03685caead39072a23492b1ffc31 ""
+  "chapters/results.tex" 1720803485 313 5a65556570733a9872e406aa1a6b10fb ""
+  "img/RandomForest_ROC.png" 1720803622 306031 e250d606761340fc925f64e0dbb7ac4f ""
   "img/lstm.jpg" 1720703907 148783 3d676fc8034ad1beb40f05b37ca5b866 ""
+  "img/sentimentanalysis.png" 1720801983 637629 91d7f16a4f48eae939a7d961a875b444 ""
   "p:/6. DSMA/99. Thesis/Github/thesis/latex/thesis.tex" 1720706040 933 f5b097ecc0ae98e6e979dd0f339b0b74 ""
-  "thesis.aux" 1720734628 3961 6f3f59aa1637a06d6b04c3399159a2cc "pdflatex"
+  "thesis.aux" 1720803625 4748 ecffe0cd6878a606c09bd8c79d7b757b "pdflatex"
   "thesis.tex" 1720706040 933 f5b097ecc0ae98e6e979dd0f339b0b74 ""
-  "thesis.toc" 1720734628 2370 b2ad070b1e59b46660f402fe7ab1cee0 "pdflatex"
+  "thesis.toc" 1720803625 2610 dad707f53752bcd07c562824c6c90ce7 "pdflatex"
   (generated)
   "thesis.aux"
   "thesis.log"

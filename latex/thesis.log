@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.10.1)  11 JUL 2024 23:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.10.1)  12 JUL 2024 19:00
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -255,7 +255,14 @@ Package: multicol 2023/03/30 v1.9f multicolumn formatting (FMi)
 File: l3backend-pdftex.def 2023-04-19 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count295
 \l__pdf_internal_box=\box106
-) (./thesis.aux)
+) (./thesis.aux
+
+LaTeX Warning: Label `fig:example-image' multiply defined.
+
+
+LaTeX Warning: Label `fig:example-image' multiply defined.
+
+)
 \openout1 = `thesis.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 28.
@@ -331,35 +338,59 @@ Overfull \hbox (1.33536pt too wide) in paragraph at lines 42--43
 
 [6]) (./chapters/methodology.tex [7] [8
 
-] [9] [10] [11] [12]
-<img/lstm.jpg, id=59, 869.49844pt x 773.89125pt>
+] [9] [10]
+<img/sentimentanalysis.png, id=50, 1438.173pt x 354.123pt>
+File: img/sentimentanalysis.png Graphic file (type png)
+<use img/sentimentanalysis.png>
+Package pdftex.def Info: img/sentimentanalysis.png  used on input line 149.
+(pdftex.def)             Requested size: 540.60236pt x 133.1146pt.
+
+Overfull \hbox (15.36447pt too wide) in paragraph at lines 149--150
+ [][] 
+ []
+
+[11 <./img/sentimentanalysis.png>] [12] [13]
+<img/lstm.jpg, id=65, 869.49844pt x 773.89125pt>
 File: img/lstm.jpg Graphic file (type jpg)
 <use img/lstm.jpg>
-Package pdftex.def Info: img/lstm.jpg  used on input line 255.
+Package pdftex.def Info: img/lstm.jpg  used on input line 274.
 (pdftex.def)             Requested size: 455.24408pt x 405.18898pt.
+ [14 <./img/lstm.jpg>]) (./chapters/results.tex [15]
+<img/RandomForest_ROC.png, id=72, 1293.633pt x 354.123pt>
+File: img/RandomForest_ROC.png Graphic file (type png)
+<use img/RandomForest_ROC.png>
+Package pdftex.def Info: img/RandomForest_ROC.png  used on input line 8.
+(pdftex.def)             Requested size: 540.60236pt x 147.98495pt.
 
+Overfull \hbox (15.36447pt too wide) in paragraph at lines 8--9
+ [][] 
+ []
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+) [16
 
-[13]) (./chapters/results.tex) [14 <./img/lstm.jpg>] (./thesis.aux)
+ <./img/RandomForest_ROC.png>] (./thesis.aux)
  ***********
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2023-08-29>
  ***********
+
+
+LaTeX Warning: There were multiply-defined labels.
+
  ) 
 Here is how much of TeX's memory you used:
- 2804 strings out of 476888
- 44776 string characters out of 5807195
- 1942785 words of memory out of 5000000
- 24074 multiletter control sequences out of 15000+600000
+ 2822 strings out of 476888
+ 45321 string characters out of 5807195
+ 1943785 words of memory out of 5000000
+ 24092 multiletter control sequences out of 15000+600000
  567715 words of font info for 69 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 57i,18n,65p,1325b,242s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 57i,18n,65p,1325b,244s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1095.600pk> <c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk><c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb><c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on thesis.pdf (15 pages, 361140 bytes).
+Output written on thesis.pdf (17 pages, 1231390 bytes).
 PDF statistics:
- 129 PDF objects out of 1000 (max. 8388607)
- 82 compressed objects within 1 object stream
+ 140 PDF objects out of 1000 (max. 8388607)
+ 87 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 16 words of extra memory for PDF output out of 10000 (max. 10000000)
 

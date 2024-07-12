@@ -65,6 +65,7 @@ def process_dataframe(df):
     return df
 
 def main(df):
+    df = df.copy()
     # Ensure required columns exist
     required_columns = ['title', 'selftext', 'date_posted', 'ups']
     if not all(col in df.columns for col in required_columns):
