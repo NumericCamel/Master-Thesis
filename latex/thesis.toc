@@ -36,3 +36,7 @@
 \contentsline {section}{\numberline {3.9}Model Evaluation}{15}{}%
 \contentsline {chapter}{Results}{16}{}%
 \contentsline {section}{\numberline {4.10}Random Forest Classifier}{16}{}%
+\contentsline {section}{\numberline {4.11}Support Vector Machine}{16}{}%
+\contentsline {section}{\numberline {4.12}SHAPLEY Values}{16}{}%
+\contentsline {section}{\numberline {4.13}XGBoost}{18}{}%
+\contentsline {section}{\numberline {4.14}LSTM}{18}{}%

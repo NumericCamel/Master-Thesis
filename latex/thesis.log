@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.10.1)  12 JUL 2024 19:00
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.10.1)  15 JUL 2024 20:37
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -259,9 +259,6 @@ File: l3backend-pdftex.def 2023-04-19 L3 backend support: PDF output (pdfTeX)
 
 LaTeX Warning: Label `fig:example-image' multiply defined.
 
-
-LaTeX Warning: Label `fig:example-image' multiply defined.
-
 )
 \openout1 = `thesis.aux'.
 
@@ -359,16 +356,32 @@ Package pdftex.def Info: img/lstm.jpg  used on input line 274.
 <img/RandomForest_ROC.png, id=72, 1293.633pt x 354.123pt>
 File: img/RandomForest_ROC.png Graphic file (type png)
 <use img/RandomForest_ROC.png>
-Package pdftex.def Info: img/RandomForest_ROC.png  used on input line 8.
-(pdftex.def)             Requested size: 540.60236pt x 147.98495pt.
+Package pdftex.def Info: img/RandomForest_ROC.png  used on input line 9.
+(pdftex.def)             Requested size: 525.23788pt x 143.77565pt.
+<img/SVM_ROC.png, id=73, 1293.633pt x 354.123pt>
+File: img/SVM_ROC.png Graphic file (type png)
+<use img/SVM_ROC.png>
+Package pdftex.def Info: img/SVM_ROC.png  used on input line 19.
+(pdftex.def)             Requested size: 525.23788pt x 143.77565pt.
+<img/svm_beeplot.png, id=74, 571.6557pt x 679.338pt>
+File: img/svm_beeplot.png Graphic file (type png)
+<use img/svm_beeplot.png>
+Package pdftex.def Info: img/svm_beeplot.png  used on input line 29.
+(pdftex.def)             Requested size: 525.23788pt x 624.20038pt.
+<img/XGBoost_ROC.png, id=75, 1293.633pt x 354.123pt>
+File: img/XGBoost_ROC.png Graphic file (type png)
+<use img/XGBoost_ROC.png>
+Package pdftex.def Info: img/XGBoost_ROC.png  used on input line 39.
+(pdftex.def)             Requested size: 525.23788pt x 143.77565pt.
+ [16
 
-Overfull \hbox (15.36447pt too wide) in paragraph at lines 8--9
- [][] 
- []
-
-) [16
-
- <./img/RandomForest_ROC.png>] (./thesis.aux)
+ <./img/RandomForest_ROC.png> <./img/SVM_ROC.png>] [17 <./img/svm_beeplot.png>]
+<img/lstm_roc.png, id=85, 1293.633pt x 354.123pt>
+File: img/lstm_roc.png Graphic file (type png)
+<use img/lstm_roc.png>
+Package pdftex.def Info: img/lstm_roc.png  used on input line 49.
+(pdftex.def)             Requested size: 525.23788pt x 143.77565pt.
+) [18 <./img/XGBoost_ROC.png> <./img/lstm_roc.png>] (./thesis.aux)
  ***********
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2023-08-29>
@@ -379,18 +392,18 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 2822 strings out of 476888
- 45321 string characters out of 5807195
+ 2863 strings out of 476888
+ 46234 string characters out of 5807195
  1943785 words of memory out of 5000000
- 24092 multiletter control sequences out of 15000+600000
+ 24133 multiletter control sequences out of 15000+600000
  567715 words of font info for 69 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  57i,18n,65p,1325b,244s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1095.600pk> <c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk><c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb><c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on thesis.pdf (17 pages, 1231390 bytes).
+Output written on thesis.pdf (19 pages, 2007699 bytes).
 PDF statistics:
- 140 PDF objects out of 1000 (max. 8388607)
- 87 compressed objects within 1 object stream
+ 155 PDF objects out of 1000 (max. 8388607)
+ 92 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 16 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 36 words of extra memory for PDF output out of 10000 (max. 10000000)
 

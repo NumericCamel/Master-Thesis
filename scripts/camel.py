@@ -536,3 +536,29 @@ def f1_score(y_true, y_pred):
     precision_val = precision(y_true, y_pred)
     recall_val = recall(y_true, y_pred)
     return 2 * ((precision_val * recall_val) / (precision_val + recall_val + K.epsilon()))
+
+import tensorflow as tf
+def macro_f1_score(y_true, y_pred, threshold=0.5):
+    """Calculate the macro F1 score."""
+    y_pred = K.cast(K.greater(y_pred, threshold), K.floatx())
+    tp = K.sum(y_true * y_pred, axis=0)
+    fp = K.sum((1 - y_true) * y_pred, axis=0)
+    fn = K.sum(y_true * (1 - y_pred), axis=0)
+
+    p = tp / (tp + fp + K.epsilon())
+    r = tp / (tp + fn + K.epsilon())
+    f1 = 2 * p * r / (p + r + K.epsilon())
+    macro_f1 = K.mean(f1)
+    return macro_f1
+
+# Define AUC-ROC as a metric
+def auc_roc(y_true, y_pred):
+    """Calculate the AUC-ROC using a pre-defined metric object."""
+    # Reset the metric's state at the start of each epoch
+    auc_roc_metric.reset_states()
+    
+    # Update the metric's state with the new batch of data
+    auc_roc_metric.update_state(y_true, y_pred)
+    
+    # Return the current result
+    return auc_roc_metric.result()

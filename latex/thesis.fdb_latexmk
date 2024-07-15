@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1720803623 "p:/6. DSMA/99. Thesis/Github/thesis/latex/thesis.tex" "thesis.pdf" "thesis" 1720803625 0
+["pdflatex"] 1721068644 "p:/6. DSMA/99. Thesis/Github/thesis/latex/thesis.tex" "thesis.pdf" "thesis" 1721068648 0
   "c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-dist/fonts/tfm/jknappen/ec/tcrm1095.tfm" 1696114214 1536 02c06700a42be0f5a28664c7273f82e7 ""
   "c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-dist/fonts/tfm/jknappen/ec/tcrm1200.tfm" 1696114214 1536 74b7293ec3713bb7fdca8dd1bd1f469c ""
   "c:/Users/mulle/AppData/Roaming/TinyTeX/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1696114214 1004 54797486969f23fa377b128694d548df ""
@@ -68,14 +68,18 @@
   "chapters/introduction.tex" 1720728685 1820 0fa8c55cfa506d551f5aa108a4632ab2 ""
   "chapters/literature_review.tex" 1720734627 14747 2e30ba0ca5de97a22acb5802c074899f ""
   "chapters/methodology.tex" 1720802041 17079 308d03685caead39072a23492b1ffc31 ""
-  "chapters/results.tex" 1720803485 313 5a65556570733a9872e406aa1a6b10fb ""
+  "chapters/results.tex" 1721068642 1173 0d65b99b52f87b1c1009170a4516c977 ""
   "img/RandomForest_ROC.png" 1720803622 306031 e250d606761340fc925f64e0dbb7ac4f ""
+  "img/SVM_ROC.png" 1721067926 303339 99e182d5ab57467525230974c478c600 ""
+  "img/XGBoost_ROC.png" 1721067913 306190 61575eb98d7167c0c8f80e4fc35d5f25 ""
   "img/lstm.jpg" 1720703907 148783 3d676fc8034ad1beb40f05b37ca5b866 ""
+  "img/lstm_roc.png" 1721068122 286135 153fce8d2479e02779f1b125bc5a7ea0 ""
   "img/sentimentanalysis.png" 1720801983 637629 91d7f16a4f48eae939a7d961a875b444 ""
+  "img/svm_beeplot.png" 1721068102 104281 065d45cd214d700e154004d5b53024b4 ""
   "p:/6. DSMA/99. Thesis/Github/thesis/latex/thesis.tex" 1720706040 933 f5b097ecc0ae98e6e979dd0f339b0b74 ""
-  "thesis.aux" 1720803625 4748 ecffe0cd6878a606c09bd8c79d7b757b "pdflatex"
+  "thesis.aux" 1721068648 5865 2c3692c97172d545e565105346449392 "pdflatex"
   "thesis.tex" 1720706040 933 f5b097ecc0ae98e6e979dd0f339b0b74 ""
-  "thesis.toc" 1720803625 2610 dad707f53752bcd07c562824c6c90ce7 "pdflatex"
+  "thesis.toc" 1721068648 2861 51c87ab8b4b0b72ee6320e501e3f0b52 "pdflatex"
   (generated)
   "thesis.aux"
   "thesis.log"
