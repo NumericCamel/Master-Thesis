@@ -1,21 +1,130 @@
-\chapter*{Introduction}
-\addcontentsline{toc}{chapter}{Introduction}
-\setcounter{chapter}{1}
+\chapter{Introduction}
 
+\section{Introduction to Cryptocurrencies and Blockchain}
+Cryptocurrencies and blockchain technology not only represent a shift in the way we think about money and financial transactions, but it also revolutionizes 
+applications associated with peer-to-peer technology. The era of blockchain technology began in 2008 by an anonymous person or group known as Satoshi Nakamoto,
+ whose whitepaper titled "Bitcoin: A Peer-to-Peer Electronic Cash System" laid the foundation for the first cryptocurrency. 
+ Blockchain technology in big is celebrated for its transparency, security, and immutability of transactions, presenting a robust alternative to conventional 
+ financial systems.
 
-Predicting stock prices remains one of the most challenging applications of time series analysis, primarily due to the Efficient Market Hypothesis (EMH) proposed by Eugene Fama. 
-According to EMH, asset prices reflect all available information, making it inherently difficult to achieve consistent predictive accuracy (Fama, 1970). 
-While there is an abundance of empirical research focused on stock price prediction (Kara et al., 2011), the literature specifically addressing cryptocurrency price predictions 
-remains significantly less developed.
+\subsection{How Cryptocurrencies Work}
+At the core of cryptocurrencies is blockchain technology, a distributed ledger that records all transactions across a network of computers. Each block in the 
+blockchain contains a list of transactions and a reference to the previous block, creating a secure chain of data, hence the name blockchain. This structure 
+prevents tampering and ensures that once data is recorded, it cannot be altered without consensus from the network.
+Initially, cryptocurrencies like Bitcoin used a mechanism called Proof of Work (PoW) to validate transactions and secure the network. PoW requires participants, 
+known as miners, to solve complex mathematical puzzles, consuming significant computational power and energy. As of 2023, Bitcoin's network consumes 
+approximately 120 terawatt-hours (TWh) of electricity annually, comparable to the energy consumption of a small country.
 
+\subsubsection{The Shift to Proof of Stake}
+Due to the high energy consumption and scalability issues associated with PoW, many cryptocurrencies are transitioning to Proof of Stake (PoS). 
+PoS reduces the need for computational power by allowing validators to create new blocks and verify transactions based on the number of coins they
+ hold and are willing to "stake" as collateral. This method is more energy-efficient and can handle a higher volume of transactions, making it a more
+  sustainable option for the future.
 
-Cryptocurrencies, led by Bitcoin, have emerged as a significant force in the financial markets. 
-Bitcoin, often referred to as the flagship of the cryptocurrency world, boasts a market capitalization close to one trillion dollars as of July 2024. 
-Alongside Bitcoin, other notable cryptocurrencies such as Ethereum and Solana operate on proof-of-stake protocols, with market capitalizations of approximately 
-400 billion and 100 billion dollars, respectively. The digital asset market, encompassing both tangible and intangible assets, is projected to reach a staggering
- 24 trillion dollars by 2025 (Muddasir et al., 2020).
+\subsubsection{Introduction to Ethereum and Solana}
+Ethereum, introduced in 2015 by Vitalik Buterin, expanded the capabilities of blockchain by enabling smart contracts and decentralized applications (DApps). 
+These features allow developers to build and deploy a wide range of applications on the Ethereum network, from financial services to gaming and beyond. 
+Ethereum transitioned to PoS in 2022 with its "Ethereum 2.0" upgrade, significantly reducing its energy consumption and improving transaction speeds.
+Solana, another significant player in the cryptocurrency space, was founded by Anatoly Yakovenko in 2017. It is known for its exceptionally fast transaction 
+speeds, capable of handling up to 65,000 transactions per second and growing, addressing scalability issues that have plagued other blockchain networks. 
+Solana's innovative consensus mechanism, Proof of History (PoH), works in conjunction with PoS to further enhance speed and efficiency.
 
+\subsubsection{The Growth and Impact of Cryptocurrency}
+Cryptocurrencies are experiencing rapid growth and adoption across various sectors. Their potential to disrupt traditional financial systems is becoming 
+increasingly evident, as more individuals and institutions embrace digital assets for transactions, investments, and even as a hedge against economic 
+uncertainties. The entry of major financial institutions like Fidelity and BlackRock into the cryptocurrency space, particularly through Bitcoin ETFs, 
+underpins the trend of institutional interest in crypto assets. The global cryptocurrency market capitalization has surpassed \$2.3 trillion, with Bitcoin, 
+Ethereum, and Solana being major contributors to this growth (CoinMarketCap, 2024).
 
-Given the substantial trading volume and increasing market relevance of cryptocurrencies, this study aims to explore whether their prices can be predicted despite the principles of EMH. 
-By focusing on Bitcoin, Ethereum, and Solana, this thesis will employ a multifaceted feature dataset to examine the potential for accurate cryptocurrency price predictions. 
-This investigation not only contributes to the academic discourse but also holds practical significance in enhancing our understanding of the cryptocurrency sector.
+As cryptocurrencies continue to evolve, they reshape the financial landscape, offering new opportunities for innovation and inclusivity. This thesis aims to 
+delve into the factors influencing the prices of three prominent cryptocurrencies, Bitcoin, Ethereum, and Solana. 
+In summary, the rise of cryptocurrencies and blockchain technology marks a transformative era in finance, characterized by decentralization, transparency, and 
+enhanced security. Understanding these developments is crucial for predicting the future of digital currencies and their impact on our world.
+
+\section{Introduction to Research}
+The endeavor to forecast stock prices has perennially presented a daunting challenge within the domain of time series analysis, 
+a task further complicated by the propositions of Eugene Fama’s Efficient Market Hypothesis (EMH). Introduced in 1970, 
+EMH asserts that asset prices fully reflect all available information, thereby rendering the task of achieving consistent 
+predictive accuracy particularly arduous (Fama, 1970). While there exists a substantial corpus of empirical research dedicated to 
+the prediction of stock prices (Kara et al., 2011), the exploration of predictive methodologies for cryptocurrency prices is still emerging.
+
+This research aims to delve into this relatively underexplored area by not only focusing on traditional predictive models but also
+incorporating an analysis of social media sentiment and technical analysis variables. The influence of broader economic indicators, 
+such as gold prices and S\&P 500 index movements, will also be examined to ascertain their relationships with the returns of leading 
+cryptocurrencies like Bitcoin, Ethereum, and Solana.
+
+In this study, particular attention will be paid to the sentiment expressed on platforms like Reddit, which has become a barometer of 
+public opinion that can significantly sway cryptocurrency markets. By integrating these diverse data streams—from technical indicators 
+to sentiment analysis and macroeconomic variables—this research seeks to offer a holistic view 
+of the factors driving cryptocurrency prices. This comprehensive approach will not only test the boundaries of EMH within the digital currency 
+space but also contribute to a deeper understanding of the intricate dynamics at play in cryptocurrency markets.
+
+\subsection{Research Question}
+Given the complexities introduced by the Efficient Market Hypothesis and the growing significance of the cryptocurrency market,
+this thesis centers around the following primary research questions:
+
+\begin{enumerate}
+\item Can machine learning and deep learning models accurately predict the prices of Bitcoin, Ethereum, and Solana, despite the high market 
+efficiency posited by EMH?
+
+\item How does social media sentiment, particularly on platforms like Reddit, influence the prices of these cryptocurrencies?
+
+\item How do various variables, including market indicators, social media sentiment, and macroeconomic factors, interact with each other to affect cryptocurrency prices?
+\end{enumerate}
+
+These questions will be explored through the application of various predictive models, examining their effectiveness in forecasting short-term and long-term cryptocurrency price movements. The study will also incorporate an analysis of sentiment extracted from Reddit posts and comments to determine the impact of public sentiment on market values. This multifaceted approach allows for a comprehensive understanding of the interactions between different 
+predictors and their collective influence on cryptocurrency prices.
+
+\subsection{Hypothesis}
+Building on the outlined research questions, the central hypothesis of this thesis is articulated as follows:
+
+Hypothesis: Social media sentiment, specifically from platforms like Reddit, has a significant correlation with the prices of cryptocurrencies 
+such as Bitcoin, Ethereum, and Solana. When combined with other variables in a predictive model, this sentiment analysis will contribute to 
+achieving an accuracy rate exceeding 50\% in forecasting cryptocurrency prices.
+
+Rationale: This hypothesis is grounded in the premise that social media platforms are a powerful medium where investors and enthusiasts 
+frequently express opinions and disseminate information that can influence market behavior. The real-time nature of social media data provides 
+a dynamic measure of public sentiment, which is expected to be particularly impactful in the relatively unregulated and speculative markets of 
+cryptocurrencies. By incorporating sentiment analysis into a comprehensive model that also includes technical indicators and macroeconomic factors,
+this study anticipates a robust tool capable of capturing subtle shifts in market dynamics that traditional models might overlook.
+
+Expectations: The integration of diverse variables will enhance the model's capability to interpret complex interactions that drive 
+cryptocurrency prices. This approach is expected not only to validate the influence of social media sentiment on market prices but also to 
+demonstrate that advanced machine learning and deep learning techniques can effectively challenge the assumptions of the 
+Efficient Market Hypothesis within the cryptocurrency domain.
+
+This hypothesis sets the stage for detailed empirical analysis, where the validity of these claims will be rigorously tested using 
+sophisticated computational techniques.
+
+\subsection{Motivation}
+The motivation for this study is driven by several compelling factors reflecting the evolving landscape of financial markets due to the rise of 
+blockchain technology:
+
+\begin{enumerate}
+\item \textbf{Continued Growth of Blockchain:} As blockchain technology continues to permeate various sectors, its growth trajectory appears poised to escalate 
+further. This study aims to contribute to this burgeoning field by enhancing our understanding of how blockchain-based assets, particularly 
+cryptocurrencies, are valued and traded in global markets.
+
+\item \textbf{Testing the Efficient Market Hypothesis (EMH):} Despite the widespread acceptance of EMH, which suggests that asset prices reflect all available 
+information, this study seeks to challenge this hypothesis by employing advanced predictive models. By attempting to forecast cryptocurrency prices, 
+this research will explore the limits of EMH in the highly volatile and relatively unregulated cryptocurrency market.
+
+\item \textbf{Gap in Research on Cryptocurrency Predictive Modeling:} There is a notable scarcity of comprehensive research on predictive modeling in the 
+cryptocurrency domain, especially concerning newer currencies like Solana. Furthermore, existing studies rarely integrate a multivariate approach 
+that includes a combination of price history, technical analysis (TA), macroeconomic factors, and sentiment analysis. This research aims to fill 
+this gap by deploying a multifaceted analytical framework that could provide a more robust understanding of cryptocurrency price movements.
+\end{enumerate}
+
+By addressing these motivations, this study not only aims to contribute valuable insights to the field of financial analytics but also seeks to 
+provide practical tools for investors, policymakers, and regulators to navigate the complex dynamics of cryptocurrency markets more effectively.
+
+\subsection{Relevance}
+The relevance of this research is twofold:
+
+\begin{enumerate}
+\item \textbf{Academic Relevance:} This study contributes to the academic literature by filling the gap concerning the predictability of cryptocurrency prices. 
+By applying machine learning and deep learning techniques, it extends the discussion of EMH to the relatively unexplored domain of digital 
+currencies, providing a fresh perspective on market efficiency theories in the context of the 21st-century financial landscape.
+
+\item \textbf{Practical Relevance:} For practitioners and investors, the findings of this thesis could offer valuable predictive insights that enhance decision-making processes and risk assessment capabilities. Additionally, as regulatory frameworks for cryptocurrencies continue to evolve, understanding price determinants and behaviors could assist in crafting informed regulations that ensure market stability and investor protection.
+\end{enumerate}
